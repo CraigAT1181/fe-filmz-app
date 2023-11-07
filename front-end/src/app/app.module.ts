@@ -7,13 +7,19 @@ import { HeaderComponent } from './components/header/header.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { HomeComponent } from './components/home/home.component';
 import { FilmCardComponent } from './components/film-card/film-card.component';
+import { SearchBarComponent } from './components/search-bar/search-bar.component';
+import { NavBarDrawerComponent } from './components/nav-bar-drawer/nav-bar-drawer.component';
+import { ButtonComponent } from './components/button/button.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     HeaderComponent,
     HomeComponent,
-    FilmCardComponent
+    FilmCardComponent,
+    SearchBarComponent,
+    NavBarDrawerComponent,
+    ButtonComponent
   ],
   imports: [
     BrowserModule,

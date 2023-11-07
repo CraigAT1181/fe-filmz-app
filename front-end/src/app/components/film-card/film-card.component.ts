@@ -7,7 +7,16 @@ import { FilmCardable } from 'src/app/filmCard';
   styleUrls: ['./film-card.component.css'],
 })
 export class FilmCardComponent {
+  @Input() watched: boolean = false;
+  @Input() watchlisted: boolean = false;
+
   @Input() filmCard!: FilmCardable;
 
+  toggleWatched() {
+    this.watched ? (this.watched = false) : (this.watched = true);
+  }
 
+  toggleWatchlisted() {
+    this.watchlisted ? (this.watchlisted = false) : (this.watchlisted = true);
+  }
 }
