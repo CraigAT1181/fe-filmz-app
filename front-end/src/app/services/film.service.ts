@@ -9,7 +9,7 @@ import { exampleFilms } from '../mock-film-cards';
 export class FilmService {
   constructor() {}
 
-  getFilms(): Observable<FilmCardable[]> {
+  getFilms(id: number): Observable<FilmCardable[]> {
     const films = of(exampleFilms);
     return films;
   }
