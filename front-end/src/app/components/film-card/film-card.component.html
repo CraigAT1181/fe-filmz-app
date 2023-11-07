@@ -1,0 +1,42 @@
+<section class="friend-review-display">{{ filmCard.friendReviews }}</section>
+<section class="avg-film-rating">{{ filmCard.avgRating }}</section>
+<section class="film-panel">
+  <h3>{{ filmCard.title }}</h3>
+  <img src="{{ filmCard.img }}" alt="Picture of {{ filmCard.title }}" />
+
+  <div *ngIf="!watched">
+    <app-button
+      color="grey"
+      textColor="white"
+      text="Watched"
+      (btnClick)="toggleWatched()"
+    ></app-button>
+  </div>
+  <div *ngIf="watched">
+    <app-button
+      color="green"
+      textColor="white"
+      text="Watched"
+      (btnClick)="toggleWatched()"
+    ></app-button>
+  </div>
+
+  <div *ngIf="!watchlisted">
+    <app-button
+      color="grey"
+      textColor="white"
+      text="Add to watchlist"
+      (btnClick)="toggleWatchlisted()"
+    ></app-button>
+  </div>
+  <div *ngIf="watchlisted">
+    <app-button
+      color="green"
+      textColor="white"
+      text="Remove from Watchlist"
+      (btnClick)="toggleWatchlisted()"
+    ></app-button>
+  </div>
+
+  <button>Post/Edit Review</button>
+</section>
