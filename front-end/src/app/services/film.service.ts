@@ -15,9 +15,8 @@ export class FilmService {
   }
 
   getFilm(id: number): Observable<FilmCardable> {
-    const film = exampleFilms.find((film) => {
-      film.id === id;
-    })!;
+   
+    const film = exampleFilms.find(f => f.id === id)!;
     return of(film);
   }
 }

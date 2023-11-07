@@ -13,6 +13,7 @@ import { FilmCardable } from 'src/app/filmCard';
 export class FilmPageComponent {
   film!: FilmCardable;
 
+
   constructor(
     private route: ActivatedRoute,
     private filmService: FilmService,
