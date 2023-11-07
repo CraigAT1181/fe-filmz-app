@@ -8,23 +8,26 @@ import { FilmCardable } from 'src/app/filmCard';
 @Component({
   selector: 'app-film-page',
   templateUrl: './film-page.component.html',
-  styleUrls: ['./film-page.component.css']
+  styleUrls: ['./film-page.component.css'],
 })
 export class FilmPageComponent {
-film: FilmCardable[] = [];
+  film!: FilmCardable;
 
-constructor (
-  private route: ActivatedRoute,
-  private filmService: FilmService,
-  private location: Location
-) {}
+  constructor(
+    private route: ActivatedRoute,
+    private filmService: FilmService,
+    private location: Location
+  ) {}
 
-ngOnInit(): void {
-  this.getFilmID(); 
-}
+  ngOnInit(): void {
+    this.getFilmID();
+  }
 
-getFilmID(): void{
-const id = Number (this.route.snapshot.paramMap.get('id'))
-this.filmService.getFilms(id).subscribe((film) => {this.film = film})
-}
+  getFilmID(): void {
+    const id = Number(this.route.snapshot.paramMap.get('id'));
+    this.filmService.getFilm(id).subscribe((film) => {
+      this.film = film;
+      return film;
+    });
+  }
 }

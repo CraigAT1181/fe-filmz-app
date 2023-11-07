@@ -9,8 +9,15 @@ import { exampleFilms } from '../mock-film-cards';
 export class FilmService {
   constructor() {}
 
-  getFilms(id: number): Observable<FilmCardable[]> {
+  getFilms(): Observable<FilmCardable[]> {
     const films = of(exampleFilms);
     return films;
+  }
+
+  getFilm(id: number): Observable<FilmCardable> {
+    const film = exampleFilms.find((film) => {
+      film.id === id;
+    })!;
+    return of(film);
   }
 }
