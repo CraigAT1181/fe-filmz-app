@@ -1,9 +1,11 @@
 <section class="friend-review-display">{{ filmCard.friendReviews }}</section>
 <section class="avg-film-rating">{{ filmCard.avgRating }}</section>
 <section class="film-panel">
-  <h3>{{ filmCard.title }}</h3>
-  <img src="{{ filmCard.img }}" alt="Picture of {{ filmCard.title }}" />
-
+  <div>
+    <a routerLink="/film/{{ filmCard.id }}">
+    <h3>{{ filmCard.title }}</h3></a>
+    <img src="{{ filmCard.img }}" alt="Picture of {{ filmCard.title }}" />
+  </div>
   <div *ngIf="!watched">
     <app-button
       color="grey"
