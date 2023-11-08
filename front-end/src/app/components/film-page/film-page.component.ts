@@ -31,7 +31,7 @@ export class FilmPageComponent {
 
   // Accessing TMDB
   getFilmName() {
-    this.tmdbApiService.getFilmByTitle()
+    this.tmdbApiService.getFilmByTitle(this.film.title)
     .then(({data: {results}}) => {
       console.log(results[0])  
       this.title = results[0].title;
