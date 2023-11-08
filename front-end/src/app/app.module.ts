@@ -11,6 +11,7 @@ import { SearchBarComponent } from './components/search-bar/search-bar.component
 import { NavBarDrawerComponent } from './components/nav-bar-drawer/nav-bar-drawer.component';
 import { ButtonComponent } from './components/button/button.component';
 import { FilmPageComponent } from './components/film-page/film-page.component';
+import axios from 'axios';
 
 @NgModule({
   declarations: [
