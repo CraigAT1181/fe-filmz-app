@@ -1,12 +1,12 @@
 <section class="film-info">
   <p>{{ title }}</p>
-  <img src="{{ img }}" alt="" />
 </section>
 
 <section class="synopsis">
-  <p>Freaky ID: {{ film.id }}</p>
   <p>Average Rating: {{ film.avgRating }}</p>
-  <p>{{ overview }}</p>
+  <app-film-synopsis-card [synopsisCard]="synopsisCard">
+
+  </app-film-synopsis-card>
 </section>
 
 <section class="friends-review-carousel">

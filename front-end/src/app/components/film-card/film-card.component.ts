@@ -1,5 +1,5 @@
 import { Component, Input } from '@angular/core';
-import { FilmCardable } from 'src/app/filmCard';
+import { FilmCardable } from 'src/app/interfaces/filmCard';
 
 @Component({
   selector: 'app-film-card',

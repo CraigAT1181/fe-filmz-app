@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Observable, of } from 'rxjs';
-import { FilmCardable } from '../filmCard';
+import { FilmCardable } from '../interfaces/filmCard';
 import { exampleFilms } from '../mock-film-cards';
 
 @Injectable({
@@ -15,8 +15,7 @@ export class FilmService {
   }
 
   getFilm(id: number): Observable<FilmCardable> {
-   
-    const film = exampleFilms.find(f => f.id === id)!;
+    const film = exampleFilms.find((f) => f.id === id)!;
     return of(film);
   }
 }

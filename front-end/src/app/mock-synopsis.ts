@@ -1,4 +1,4 @@
-import { Synopsisible } from './synopsis';
+import { Synopsisible } from './interfaces/synopsis';
 
 export const exampleSynopsis: Synopsisible[] = [
   {

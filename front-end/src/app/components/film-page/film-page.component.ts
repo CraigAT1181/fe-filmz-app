@@ -3,8 +3,9 @@ import { ActivatedRoute, ParamMap } from '@angular/router';
 import { Location } from '@angular/common';
 import { FilmService } from 'src/app/services/film.service';
 import { exampleFilms } from 'src/app/mock-film-cards';
-import { FilmCardable } from 'src/app/filmCard';
+import { FilmCardable } from 'src/app/interfaces/filmCard';
 import { TmdbApiService } from 'src/app/services/tmdb-api.service';
+import { SynopsisCardable } from 'src/app/interfaces/synopsis';
 
 @Component({
   selector: 'app-film-page',
@@ -16,7 +17,8 @@ export class FilmPageComponent {
   title!: string;
   img!: string;
   overview!: string;
-  
+  synopsisCard!: SynopsisCardable;
+
   constructor(
     private route: ActivatedRoute,
     private filmService: FilmService,
@@ -31,15 +33,21 @@ export class FilmPageComponent {
 
   // Accessing TMDB
   getFilmName() {
-    this.tmdbApiService.getFilmByTitle(this.film.title)
-    .then(({data: {results}}) => {
-      console.log(results[0])  
-      this.title = results[0].title;
-      this.img = `https://image.tmdb.org/t/p/w500${results[0].poster_path}`;
-      this.overview = results[0].overview; // Will be part of the SynopsisCard ticket
-    }).catch(error => {
-      console.log(error.response);
-    });
+    this.tmdbApiService
+      .getFilmByTitle(this.film.title)
+      .then(({ data: { results } }) => {
+        console.log(results[0]);
+        this.synopsisCard = {
+          title: results[0].title,
+          image: `https://image.tmdb.org/t/p/w500${results[0].poster_path}`,
+          year: results[0].release_date,
+          overview: results[0].overview,
+          language: results[0].original_language,
+        }; // Will be part of the SynopsisCard ticket
+      })
+      .catch((error) => {
+        console.log(error.response);
+      });
   }
 
   // Accessing our back-end

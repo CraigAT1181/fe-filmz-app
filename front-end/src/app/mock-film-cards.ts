@@ -1,4 +1,4 @@
-import { FilmCardable } from './filmCard';
+import { FilmCardable } from './interfaces/filmCard';
 
 export const exampleFilms: FilmCardable[] = [
   {

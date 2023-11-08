@@ -1,18 +1,20 @@
 import { Component } from '@angular/core';
 import { FilmService } from 'src/app/services/film.service';
-import { FilmCardable } from 'src/app/filmCard';
+import { FilmCardable } from 'src/app/interfaces/filmCard';
 
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
-  styleUrls: ['./home.component.css']
+  styleUrls: ['./home.component.css'],
 })
 export class HomeComponent {
-filmCards: FilmCardable[] = [];
+  filmCards: FilmCardable[] = [];
 
-constructor(private filmService: FilmService) {}
+  constructor(private filmService: FilmService) {}
 
-ngOnInit(): void {
-  this.filmService.getFilms().subscribe((filmCards)=>(this.filmCards = filmCards));
-}
+  ngOnInit(): void {
+    this.filmService
+      .getFilms()
+      .subscribe((filmCards) => (this.filmCards = filmCards));
+  }
 }

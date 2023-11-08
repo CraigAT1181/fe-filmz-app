@@ -12,6 +12,7 @@ import { NavBarDrawerComponent } from './components/nav-bar-drawer/nav-bar-drawe
 import { ButtonComponent } from './components/button/button.component';
 import { FilmPageComponent } from './components/film-page/film-page.component';
 import axios from 'axios';
+import { FilmSynopsisCardComponent } from './components/film-synopsis-card/film-synopsis-card.component';
 
 @NgModule({
   declarations: [
@@ -22,7 +23,8 @@ import axios from 'axios';
     SearchBarComponent,
     NavBarDrawerComponent,
     ButtonComponent,
-    FilmPageComponent
+    FilmPageComponent,
+    FilmSynopsisCardComponent
   ],
   imports: [
     BrowserModule,
