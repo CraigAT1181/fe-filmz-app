@@ -3,6 +3,7 @@ import { ActivatedRoute } from '@angular/router';
 import { TmdbApiService } from 'src/app/services/tmdb-api.service';
 import { FilmCardable } from 'src/app/interfaces/filmCard';
 import { Observable, switchMap } from 'rxjs';
+import { identifierName } from '@angular/compiler';
 
 @Component({
   selector: 'app-search-results-page',
@@ -35,6 +36,14 @@ export class SearchResultsPageComponent {
         console.log(queryValue)
         this.tmdbApiService.getFilmByTitle(queryValue).then(({data: {results}}) => {
           console.log(results)
+          results.forEach((result: any, index: number) => {
+          const filmCard = {id: result.id,
+          title: result.title,
+        img: result.poster_path,
+      avgRating: 4,
+    friendReviews: ["barbara,Harry"]}
+            this.filmCards.push(filmCard)
+          })
           
 
         })
