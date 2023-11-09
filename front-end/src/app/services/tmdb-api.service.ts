@@ -9,7 +9,7 @@ export class TmdbApiService {
   constructor() { }
 
 api = axios.create({
-baseURL: 'https://api.themoviedb.org/3/search'
+baseURL: 'https://api.themoviedb.org/3'
 })
 
 

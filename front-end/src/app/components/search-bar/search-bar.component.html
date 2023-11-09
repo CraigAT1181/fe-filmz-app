@@ -6,11 +6,10 @@
 
         <div class="search">
           <i class="fa fa-search"></i>
-          <form (ngSubmit)="onSubmit($event)" id="searchTerm" class="form-control" placeholder="Search for a film e.g. Shrek">
-          <input name="searchTerm" value="">
-          <button class="btn btn-primary">Search</button>
+          <form [formGroup]="checkoutForm" (ngSubmit)="onSubmit()">
+          <input  id="searchTerm" class="form-control"  formControlName="searchTerm" placeholder="Search for a film e.g. Shrek">
+          <button class="btn btn-primary" type="submit">Search</button>
         </form>
-          
         </div>      
       </div>   
     </div>
