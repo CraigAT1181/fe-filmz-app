@@ -23,7 +23,8 @@ checkoutForm = this.formBuilder.group({
   ){}
 
   onSubmit(): void {
-    const searchQuery = this.checkoutForm.value
-    this.router.navigate([`/search`])
+    const searchQuery = this.checkoutForm.value.searchTerm
+    console.log(searchQuery)
+    this.router.navigate([`/search`], {queryParams: {title: searchQuery}})
   }
 }
