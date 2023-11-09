@@ -1,1 +1,17 @@
-<p>search-bar works!</p>
+<div class="container">
+
+    <div class="row height d-flex justify-content-center align-items-center">
+
+      <div class="col-md-8">
+
+        <div class="search">
+          <i class="fa fa-search"></i>
+          <form (ngSubmit)="onSubmit($event)" id="searchTerm" class="form-control" placeholder="Search for a film e.g. Shrek">
+          <input name="searchTerm" value="">
+          <button class="btn btn-primary">Search</button>
+        </form>
+          
+        </div>      
+      </div>   
+    </div>
+</div>

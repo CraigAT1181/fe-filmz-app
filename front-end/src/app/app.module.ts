@@ -13,6 +13,7 @@ import { ButtonComponent } from './components/button/button.component';
 import { FilmPageComponent } from './components/film-page/film-page.component';
 import axios from 'axios';
 import { FilmSynopsisCardComponent } from './components/film-synopsis-card/film-synopsis-card.component';
+import { SearchResultsPageComponent } from './components/search-results-page/search-results-page.component';
 
 @NgModule({
   declarations: [
@@ -20,15 +21,17 @@ import { FilmSynopsisCardComponent } from './components/film-synopsis-card/film-
     HeaderComponent,
     HomeComponent,
     FilmCardComponent,
-    SearchBarComponent,
+    
     NavBarDrawerComponent,
     ButtonComponent,
     FilmPageComponent,
-    FilmSynopsisCardComponent
+    FilmSynopsisCardComponent,
+    SearchResultsPageComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
+    SearchBarComponent,
     NgbModule
   ],
   providers: [],
