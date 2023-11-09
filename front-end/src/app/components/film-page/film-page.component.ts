@@ -40,7 +40,7 @@ export class FilmPageComponent {
         this.synopsisCard = {
           title: results[0].title,
           image: `https://image.tmdb.org/t/p/w500${results[0].poster_path}`,
-          year: results[0].release_date,
+          year: results[0].release_date.slice(0,4),
           overview: results[0].overview,
           language: results[0].original_language,
         }; // Will be part of the SynopsisCard ticket
