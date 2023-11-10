@@ -1,19 +1,16 @@
-
-
-
 <div class="card mb-3">
-  
-<img src={{synopsisCard.image}} class="mx-auto card-img" alt="...">
-    <section id="synopsis-card-section">
-      <h2>{{synopsisCard.title}} ({{synopsisCard.year}})</h2>
+  <img src="{{ synopsisCard.image }}" class="mx-auto card-img" alt="..." />
+  <section id="synopsis-card-section">
+    <h2>{{ synopsisCard.title }} ({{ synopsisCard.year }})</h2>
+    <h6>Rating: {{ synopsisCard.avgRating }}</h6>
     <h5 class="card-title">Overview:</h5>
-    <p class="card-text">{{synopsisCard.overview}}</p>
+    <p class="card-text">{{ synopsisCard.overview }}</p>
     <ul class="extra-details">
-    <li>Runtime</li>
-    <li>Genre</li>
-    <li>Director:</li>
-    <li>Starring: insert actors here</li>
-    <li>Language: </li>
-  </ul>
-</section>
+      <li>Runtime: {{ synopsisCard.runtime }} mins</li>
+      <li>Genre: {{ synopsisCard.genre }}</li>
+      <li>Directed by: {{ synopsisCard.director }}</li>
+      <li>Starring: {{ synopsisCard.actors }}</li>
+      <li>Language: {{ synopsisCard.language }}</li>
+    </ul>
+  </section>
 </div>
