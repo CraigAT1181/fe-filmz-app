@@ -12,15 +12,17 @@
        
 
        .search{
+       display: flex;
        position: relative;
        box-shadow: 0 0 40px rgba(51, 51, 51, .1);
        margin: 5px;
-         
+         margin-bottom: 2rem;
        }
 
        .search input{
 
         height: 50px;
+        width: 30rem;
         text-indent: 25px;
         border: 2px solid #d6d4d4;
 
