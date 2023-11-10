@@ -1,0 +1,10 @@
+<p>friends-page works!</p>
+
+<section class="friends-display">
+  <ul>
+      <app-friends-card
+        *ngFor="let friendCard of friendCards"
+        [friendCard]="friendCard"
+      ></app-friends-card>
+  </ul>
+</section>
