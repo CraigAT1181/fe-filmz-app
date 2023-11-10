@@ -39,9 +39,9 @@ export class SearchResultsPageComponent {
           results.forEach((result: any, index: number) => {
           const filmCard = {id: result.id,
           title: result.title,
-        img: result.poster_path,
-      avgRating: 4,
-    friendReviews: ["barbara,Harry"]}
+        img: `https://image.tmdb.org/t/p/w500${result.poster_path}`,
+        avgRating: 4,
+        friendReviews: ["barbara,Harry"]}
             this.filmCards.push(filmCard)
           })
           
