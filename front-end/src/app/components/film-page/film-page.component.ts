@@ -68,7 +68,7 @@ export class FilmPageComponent {
     this.tmdbApiService
       .getFilmById(id)
       .then(({ data }) => {
-        console.log(data);
+        console.log(data); //
         this.synopsisCard = {
           title: data.title,
           image: `https://image.tmdb.org/t/p/w500${data.poster_path}`,

@@ -4,7 +4,7 @@
   <div>
     <a routerLink="/film/{{ filmCard.id }}">
     <h3>{{ filmCard.title }}</h3>
-    <img src="{{ filmCard.img }}" alt="Picture of {{ filmCard.title }}" ngIf*="imageNull"/>
+    <img src="{{ filmCard.img }}" alt="Picture of {{ filmCard.title }}" />
   </a>
   </div>
   <div *ngIf="!watched">

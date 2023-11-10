@@ -1,7 +1,5 @@
 import { Injectable } from '@angular/core';
-import { Observable, of } from 'rxjs';
-import { FriendCardable } from '../interfaces/friendCard';
-import { exampleFriends } from '../mock-friends';
+import axios from 'axios';
 
 @Injectable({
   providedIn: 'root',
@@ -9,8 +7,14 @@ import { exampleFriends } from '../mock-friends';
 export class FriendsService {
   constructor() {}
 
-  getFriends(): Observable<FriendCardable[]> {
-    const friends = of(exampleFriends);
-    return friends;
+  api = axios;
+
+  getFriends(userid: number) {
+    return this.api.get(
+      `https://be-filmz-app.onrender.com/users/${userid}/friends`
+    );
   }
 }
+
+
+
