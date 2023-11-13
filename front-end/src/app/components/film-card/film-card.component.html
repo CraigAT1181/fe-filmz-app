@@ -3,6 +3,7 @@
 <section class="film-panel">
   <div>
     <a routerLink="/film/{{ filmCard.id }}">
+
       <h3>{{ filmCard.title }}</h3>
       <img
         src="{{ filmCard.img }}"
@@ -10,6 +11,7 @@
         alt="Picture of {{ filmCard.title }}"
       />
     </a>
+
   </div>
   <div *ngIf="!watched">
     <app-button

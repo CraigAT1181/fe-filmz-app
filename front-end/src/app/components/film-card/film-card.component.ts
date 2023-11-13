@@ -21,4 +21,5 @@ export class FilmCardComponent {
   }
 
   // this.filmCard.img === null ? this.imageNull=true : this.imageNull = false;
+
 }

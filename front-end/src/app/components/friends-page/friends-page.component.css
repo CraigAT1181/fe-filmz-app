@@ -1,0 +1,8 @@
+.friends-display {
+    display: flex;
+    flex-direction: column;
+}
+
+ul {
+    padding: 0;
+}

@@ -13,6 +13,8 @@ import { FilmPageComponent } from './components/film-page/film-page.component';
 import { FilmSynopsisCardComponent } from './components/film-synopsis-card/film-synopsis-card.component';
 import { SearchResultsPageComponent } from './components/search-results-page/search-results-page.component';
 import { ReactiveFormsModule } from '@angular/forms';
+import { FriendsPageComponent } from './components/friends-page/friends-page.component';
+import { FriendsCardComponent } from './components/friends-card/friends-card.component';
 
 @NgModule({
   declarations: [
@@ -25,7 +27,9 @@ import { ReactiveFormsModule } from '@angular/forms';
     ButtonComponent,
     FilmPageComponent,
     FilmSynopsisCardComponent,
-    SearchResultsPageComponent
+    SearchResultsPageComponent,
+    FriendsPageComponent,
+    FriendsCardComponent
   ],
   imports: [
     BrowserModule,
