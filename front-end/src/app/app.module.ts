@@ -15,6 +15,7 @@ import { SearchResultsPageComponent } from './components/search-results-page/sea
 import { ReactiveFormsModule } from '@angular/forms';
 import { FriendsPageComponent } from './components/friends-page/friends-page.component';
 import { FriendsCardComponent } from './components/friends-card/friends-card.component';
+import { WatchlistComponent } from './components/watchlist/watchlist.component';
 
 @NgModule({
   declarations: [
@@ -29,7 +30,8 @@ import { FriendsCardComponent } from './components/friends-card/friends-card.com
     FilmSynopsisCardComponent,
     SearchResultsPageComponent,
     FriendsPageComponent,
-    FriendsCardComponent
+    FriendsCardComponent,
+    WatchlistComponent
   ],
   imports: [
     BrowserModule,
