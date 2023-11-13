@@ -15,6 +15,7 @@ import { SearchResultsPageComponent } from './components/search-results-page/sea
 import { ReactiveFormsModule } from '@angular/forms';
 import { FriendsPageComponent } from './components/friends-page/friends-page.component';
 import { FriendsCardComponent } from './components/friends-card/friends-card.component';
+import { WatchlistComponent } from './components/watchlist/watchlist.component';
 import { ReviewPageComponent } from './components/review-page/review-page.component';
 import { ReviewsCardComponent } from './components/reviews-card/reviews-card.component';
 
@@ -32,6 +33,7 @@ import { ReviewsCardComponent } from './components/reviews-card/reviews-card.com
     SearchResultsPageComponent,
     FriendsPageComponent,
     FriendsCardComponent,
+    WatchlistComponent,
     ReviewPageComponent,
     ReviewsCardComponent
   ],
