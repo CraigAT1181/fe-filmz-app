@@ -26,27 +26,7 @@ export class FilmPageComponent {
 
   ngOnInit(): void {
     this.getFilmDetails();
-    // this.getFilmName();
   }
-
-  // Accessing TMDB
-  // getFilmName() {
-  //   this.tmdbApiService
-  //     .getFilmByTitle(this.film.title)
-  //     .then(({ data }) => {
-  //       console.log(data, 'RESULTS');
-  //       this.synopsisCard = {
-  //         title: data[0].title,
-  //         image: `https://image.tmdb.org/t/p/w500${data[0].poster_path}`,
-  //         year: data[0].release_date.slice(0, 4),
-  //         overview: data[0].overview,
-  //         language: data[0].original_language,
-  //       }; // Will be part of the SynopsisCard ticket
-  //     })
-  //     .catch((error) => {
-  //       console.log(error, 'ERROR');
-  //     });
-  // }
 
   getGenres(genres: []): string[] {
     const filmGenres = genres.map((genre: any) => {
@@ -57,8 +37,6 @@ export class FilmPageComponent {
 
   getDirector(crew: []): string[] {
     const director = crew.filter(({ job }) => job === 'Director');
-    console.log(director[0]['name']);
-
     return director[0]['name'];
   }
 
@@ -68,7 +46,7 @@ export class FilmPageComponent {
     this.tmdbApiService
       .getFilmById(id)
       .then(({ data }) => {
-        console.log(data); //
+
         this.synopsisCard = {
           title: data.title,
           image: `https://image.tmdb.org/t/p/w500${data.poster_path}`,
