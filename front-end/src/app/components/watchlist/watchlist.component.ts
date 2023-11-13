@@ -12,6 +12,9 @@ import { FilmService } from 'src/app/services/film.service';
 export class WatchlistComponent {
   filmCards: FilmCardable[] = [];
   @Input() filmCard!: FilmCardable;
+  watchStatus: Boolean = false;
+  watchedUnchecked: Boolean = false;
+  allChecked: Boolean = false;
 
   constructor(
     private filmService: FilmService,
@@ -23,11 +26,20 @@ export class WatchlistComponent {
     this.getWatchlist();
   }
 
+  onWatchedChange(event: any) {
+    this.watchedUnchecked = event.target.checked;
+  }
+
+  onAllChange(event: any) {
+    this.allChecked = event.target.checked;
+  }
+
   getWatchlist(): void {
     const userid = Number(this.route.snapshot.paramMap.get('userid'));
 
     this.filmService.getWatchlist(userid).then(({ data: { watchlist } }) => {
       watchlist.forEach((result: any, index: number) => {
+        
         const filmCard = {
           id: result.id,
           title: result.title,
@@ -35,7 +47,7 @@ export class WatchlistComponent {
           avgRating: result.vote_average,
           friendReviews: ['barbara,Harry'],
         };
-
+        this.watchStatus = result.is_watched;
         this.filmCards.push(filmCard);
       });
     });
