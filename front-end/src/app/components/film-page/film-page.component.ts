@@ -12,10 +12,6 @@ import { SynopsisCardable } from 'src/app/interfaces/synopsis';
   styleUrls: ['./film-page.component.css'],
 })
 export class FilmPageComponent {
-  film!: FilmCardable;
-  title!: string;
-  img!: string;
-  overview!: string;
   synopsisCard!: SynopsisCardable;
 
   constructor(
@@ -46,6 +42,7 @@ export class FilmPageComponent {
     this.tmdbApiService
       .getFilmById(id)
       .then(({ data }) => {
+        console.log('data', data.poster_path);
         this.synopsisCard = {
           title: data.title,
           image: `https://image.tmdb.org/t/p/w500${data.poster_path}`,
@@ -63,6 +60,7 @@ export class FilmPageComponent {
             data.credits.cast[3].name,
           ].join(', '),
         };
+        console.log(this.synopsisCard.image, 'image');
       })
       .catch((error) => {
         console.log(error, 'ERROR');
