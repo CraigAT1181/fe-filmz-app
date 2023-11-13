@@ -13,7 +13,6 @@ import { SynopsisCardable } from 'src/app/interfaces/synopsis';
 })
 export class FilmPageComponent {
   synopsisCard!: SynopsisCardable;
-  title!: string;
 
   constructor(
     private route: ActivatedRoute,
