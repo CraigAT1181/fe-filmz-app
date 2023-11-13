@@ -6,12 +6,19 @@
   <div class="carousel-inner">
     <div
       class="carousel-item"
-      *ngFor="let filmCard of filmCards; let index = index; let isFirst = first"
-      [ngClass]="{ active: isFirst }"
+      *ngFor="let filmCardGroup of chunkedFilmCards; let i = index"
+      [ngClass]="{ active: isItemActive(i) }"
     >
-      <app-film-card [filmCard]="filmCard"></app-film-card>
+      <div class="row">
+        <ng-container *ngFor="let card of filmCardGroup">
+          <div [ngClass]="getColumnClass()">
+            <app-film-card [filmCard]="card"></app-film-card>
+          </div>
+        </ng-container>
+      </div>
     </div>
   </div>
+
   <button
     class="carousel-control-prev"
     type="button"
