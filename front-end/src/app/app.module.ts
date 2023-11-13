@@ -35,15 +35,10 @@ import { ReviewsCardComponent } from './components/reviews-card/reviews-card.com
     FriendsCardComponent,
     WatchlistComponent,
     ReviewPageComponent,
-    ReviewsCardComponent
+    ReviewsCardComponent,
   ],
-  imports: [
-    BrowserModule,
-    AppRoutingModule,
-    NgbModule,
-    ReactiveFormsModule
-  ],
+  imports: [BrowserModule, AppRoutingModule, NgbModule, ReactiveFormsModule],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}
