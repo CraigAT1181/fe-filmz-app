@@ -13,6 +13,11 @@ import { FilmPageComponent } from './components/film-page/film-page.component';
 import { FilmSynopsisCardComponent } from './components/film-synopsis-card/film-synopsis-card.component';
 import { SearchResultsPageComponent } from './components/search-results-page/search-results-page.component';
 import { ReactiveFormsModule } from '@angular/forms';
+import { SpinnerComponent } from './components/spinner/spinner.component';
+import { LoaderInterceptor } from 'src/interceptors/loader.interceptor';
+import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 
 @NgModule({
   declarations: [
@@ -25,15 +30,25 @@ import { ReactiveFormsModule } from '@angular/forms';
     ButtonComponent,
     FilmPageComponent,
     FilmSynopsisCardComponent,
-    SearchResultsPageComponent
+    SearchResultsPageComponent,
+    SpinnerComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
+    HttpClientModule,
+    BrowserAnimationsModule,
     NgbModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    MatProgressSpinnerModule,
   ],
-  providers: [],
-  bootstrap: [AppComponent]
+  providers: [
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: LoaderInterceptor,
+      multi: true,
+    },
+  ],
+  bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}
