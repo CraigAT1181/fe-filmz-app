@@ -16,6 +16,7 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { FriendsPageComponent } from './components/friends-page/friends-page.component';
 import { FriendsCardComponent } from './components/friends-card/friends-card.component';
 import { ReviewPageComponent } from './components/review-page/review-page.component';
+import { ReviewsCardComponent } from './components/reviews-card/reviews-card.component';
 
 @NgModule({
   declarations: [
@@ -31,7 +32,8 @@ import { ReviewPageComponent } from './components/review-page/review-page.compon
     SearchResultsPageComponent,
     FriendsPageComponent,
     FriendsCardComponent,
-    ReviewPageComponent
+    ReviewPageComponent,
+    ReviewsCardComponent
   ],
   imports: [
     BrowserModule,

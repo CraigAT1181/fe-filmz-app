@@ -1,1 +1,6 @@
-<p>review-page works!</p>
+<section class="review-page">
+  <div class="review-card" *ngFor="let reviewCard of reviewCards">
+    <app-reviews-card [reviewCard]="reviewCard" />
+  </div>
+</section>
+
