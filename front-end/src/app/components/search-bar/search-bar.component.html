@@ -1,37 +1,17 @@
-<!-- <div class="row height d-flex justify-content-center align-items-center">
-  <div class="col-md-8">
-    <div class="search">
-      <i class="fa fa-search"></i>
-      <form [formGroup]="checkoutForm" (ngSubmit)="onSubmit()">
-        <input
-          id="searchTerm"
-          class="form-control"
-          formControlName="searchTerm"
-          placeholder="Search for a film e.g. Shrek"
-        />
-        <button class="btn btn-primary" type="submit">Search</button>
-      </form>
-    </div>
+<form
+  class="d-flex search-bar-margin"
+  [formGroup]="checkoutForm"
+  (ngSubmit)="onSubmit()"
+>
+  <div class="input-group">
+    <input
+      id="searchTerm"
+      class="form-control me-2"
+      formControlName="searchTerm"
+      placeholder="Search for a film..."
+      aria-label="Search"
+      required
+    />
+    <button class="btn btn-outline-success" type="submit">Search</button>
   </div>
-</div> -->
-
-<!-- OLD STUFF ABOVE -->
-
-<div class="row height d-flex justify-content-center align-items-center">
-  <div class="col-md-8">
-    <form [formGroup]="checkoutForm" (ngSubmit)="onSubmit()">
-      <div class="input-group">
-        <input
-          id="searchTerm"
-          class="form-control"
-          formControlName="searchTerm"
-          placeholder="Search for a film e.g. Shrek"
-          required
-        />
-        <div class="input-group-append">
-          <button class="btn btn-primary" type="submit">Search</button>
-        </div>
-      </div>
-    </form>
-  </div>
-</div>
+</form>

@@ -11,11 +11,13 @@ export class FilmCardComponent {
   @Input() watchlisted: boolean = false;
   @Input() filmCard!: FilmCardable;
 
-  toggleWatched() {
-    this.watched ? (this.watched = false) : (this.watched = true);
-  }
-
-  toggleWatchlisted() {
-    this.watchlisted ? (this.watchlisted = false) : (this.watchlisted = true);
+  getRatingColor(rating: number): string {
+    if (rating > 70) {
+      return 'green';
+    } else if (rating > 40) {
+      return 'yellow';
+    } else {
+      return 'red';
+    }
   }
 }

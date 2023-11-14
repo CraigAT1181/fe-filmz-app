@@ -1,49 +1,99 @@
-<section class="friend-review-display">{{ filmCard.friendReviews }}</section>
-<section class="avg-film-rating">{{ filmCard.avgRating }}</section>
-<section class="film-panel">
-  <div>
-    <a routerLink="/film/{{ filmCard.id }}">
-      <h3>{{ filmCard.title }}</h3>
-      <img
-        src="{{ filmCard.img }}"
-        class="img-fluid"
-        alt="Picture of {{ filmCard.title }}"
-      />
-    </a>
-  </div>
-  <div *ngIf="!watched">
-    <app-button
-      color="grey"
-      textColor="white"
-      text="Watched"
-      (btnClick)="toggleWatched()"
-    ></app-button>
-  </div>
-  <div *ngIf="watched">
-    <app-button
-      color="green"
-      textColor="white"
-      text="Watched"
-      (btnClick)="toggleWatched()"
-    ></app-button>
+<div class="container-fluid justify-content-center">
+  <div class="row m-2">
+    <div class="col">
+      <div class="progress">
+        <div
+          class="progress-bar"
+          role="progressbar"
+          [style.width.%]="filmCard.avgRating * 20"
+          [style.backgroundColor]="getRatingColor(filmCard.avgRating * 20)"
+          aria-valuemin="0"
+          aria-valuemax="10"
+        >
+          {{ filmCard.avgRating * 20 }}%
+        </div>
+      </div>
+    </div>
   </div>
 
-  <div *ngIf="!watchlisted">
-    <app-button
-      color="grey"
-      textColor="white"
-      text="Add to watchlist"
-      (btnClick)="toggleWatchlisted()"
-    ></app-button>
-  </div>
-  <div *ngIf="watchlisted">
-    <app-button
-      color="green"
-      textColor="white"
-      text="Remove from Watchlist"
-      (btnClick)="toggleWatchlisted()"
-    ></app-button>
+  <div class="row row-title">
+    <div class="col text-center">
+      <a
+        routerLink="/film/{{ filmCard.id }}"
+        class="text-dark text-decoration-none fs-6"
+      >
+        <h6>{{ filmCard.title }}</h6>
+      </a>
+    </div>
   </div>
 
-  <button>Post/Edit Review</button>
-</section>
+  <div class="row justify-content-center">
+    <div class="col text-center">
+      <a routerLink="/film/{{ filmCard.id }}">
+        <img
+          src="{{ filmCard.img }}"
+          class="img-fluid max-img-height image-hover-effect"
+          alt="Picture of {{ filmCard.title }}"
+        />
+      </a>
+    </div>
+  </div>
+
+  <div class="row mt-2 g-0">
+    <div class="col d-flex justify-content-end">
+      <button
+        type="button"
+        class="btn"
+        [ngClass]="{
+          'btn-outline-primary': !watched,
+          'btn-outline-success': watched
+        }"
+        data-bs-toggle="tooltip"
+        data-bs-placement="bottom"
+        title="Watched"
+        
+      >
+        <ng-container *ngIf="watched; else notWatched">
+          <i class="bi bi-eye-slash"></i>
+        </ng-container>
+        <ng-template #notWatched>
+          <i class="bi bi-eye"></i>
+        </ng-template>
+      </button>
+    </div>
+
+    <div class="col d-flex justify-content-center">
+      <button
+        type="button"
+        class="btn"
+        [ngClass]="{
+          'btn-outline-primary': !watchlisted,
+          'btn-outline-success': watchlisted
+        }"
+        data-bs-toggle="tooltip"
+        data-bs-placement="bottom"
+        title="Add to watchlist"
+        
+      >
+        <ng-container *ngIf="watchlisted; else notWatchListed">
+          <i class="bi bi-plus-lg"></i>
+        </ng-container>
+        <ng-template #notWatchListed>
+          <i class="bi bi-plus-lg"></i>
+        </ng-template>
+      </button>
+    </div>
+
+    <div class="col d-flex justify-content-start">
+      <button
+        type="button"
+        class="btn btn-outline-primary"
+        data-bs-toggle="tooltip"
+        data-bs-placement="bottom"
+        title="Write Review"
+      >
+        <i class="bi bi-pencil"></i>
+      </button>
+    </div>
+  </div>
+</div>

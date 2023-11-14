@@ -1,9 +1,10 @@
 import { Component } from '@angular/core';
 import { ActivatedRoute, ParamMap } from '@angular/router';
 import { Location } from '@angular/common';
+
 import { TmdbApiService } from 'src/app/services/tmdb-api.service';
 import { SynopsisCardable } from 'src/app/interfaces/synopsis-card';
-import { endWith } from 'rxjs';
+
 
 @Component({
   selector: 'app-film-page',
