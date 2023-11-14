@@ -11,15 +11,4 @@ export class FilmCardComponent {
   @Input() watchlisted: boolean = false;
   @Input() imageNull!: boolean;
   @Input() filmCard!: FilmCardable;
-
-  toggleWatched() {
-    this.watched ? (this.watched = false) : (this.watched = true);
-  }
-
-  toggleWatchlisted() {
-    this.watchlisted ? (this.watchlisted = false) : (this.watchlisted = true);
-  }
-
-  // this.filmCard.img === null ? this.imageNull=true : this.imageNull = false;
-
 }

@@ -12,26 +12,9 @@ export class FilmService {
 
   api = axios;
 
-  // getFilms(): Observable<FilmCardable[]> {
-  //   const films = of(exampleFilms);
-  //   return films;
-  // }
-
-  // getFilm(id: number): Observable<FilmCardable> {
-  //   const film = exampleFilms.find((f) => f.id === id)!;
-  //   return of(film);
-  // }
-
   getWatchlist(userid: number) {
     return this.api.get(
       `https://be-filmz-app.onrender.com/users/${userid}/watchlist`
     );
   }
-
-  getFilm(id: number): Observable<FilmCardable> {
-    const film = exampleFilms.find((f) => f.id === id)!;
-    return of(film);
-  }
-
-  
 }

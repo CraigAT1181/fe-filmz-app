@@ -33,7 +33,6 @@
           'btn-outline-primary': !watched,
           'btn-outline-success': watched
         }"
-        (click)="toggleWatched()"
       >
         <ng-container *ngIf="watched; else notWatched">
           <i class="bi bi-eye-slash"></i>
@@ -51,7 +50,6 @@
           'btn-outline-primary': !watchlisted,
           'btn-outline-success': watchlisted
         }"
-        (click)="toggleWatchlisted()"
       >
         <ng-container *ngIf="watchlisted; else notWatchListed">
           <i class="bi bi-plus-lg"></i>
