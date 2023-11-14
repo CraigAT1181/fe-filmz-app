@@ -14,4 +14,10 @@ export class FriendsService {
       `https://be-filmz-app.onrender.com/users/${userid}/friends`
     );
   }
+
+  getUserReviews(userid: number) {
+    return this.api.get(
+      `https://be-filmz-app.onrender.com/users/${userid}/reviews`
+    );
+  }
 }

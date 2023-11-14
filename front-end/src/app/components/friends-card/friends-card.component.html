@@ -1,4 +1,3 @@
-
 <div class="card" style="width: 18rem">
   <img src="{{ friendCard.img }}" class="card-img-top" alt="..." />
   <div class="card-body">
@@ -6,9 +5,30 @@
     <p class="card-text">Recent reviews:</p>
     <div class="container text-centre">
       <div class="d-flex justify-content-evenly">
-        <a href="#" class="btn btn-primary">1</a>
-        <a href="#" class="btn btn-primary">2</a>
-        <a href="#" class="btn btn-primary">3</a>
+        <ng-container *ngIf="friendCard.reviews[0]">
+          <a routerLink="/film/{{ friendCard.reviews[0].film_id }}"
+            ><img
+              style="width: 100px"
+              src="{{ friendCard.reviews[0].filmPoster }}"
+              alt=""
+          /></a>
+        </ng-container>
+        <ng-container *ngIf="friendCard.reviews[1]">
+          <a routerLink="/film/{{ friendCard.reviews[1].film_id }}"
+            ><img
+              style="width: 100px"
+              src="{{ friendCard.reviews[1].filmPoster }}"
+              alt=""
+          /></a>
+        </ng-container>
+        <ng-container *ngIf="friendCard.reviews[2]">
+          <a routerLink="/film/{{ friendCard.reviews[2].film_id }}"
+            ><img
+              style="width: 100px"
+              src="{{ friendCard.reviews[2].filmPoster }}"
+              alt=""
+          /></a>
+        </ng-container>
       </div>
     </div>
   </div>
