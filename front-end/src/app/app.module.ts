@@ -17,7 +17,6 @@ import { SpinnerComponent } from './components/spinner/spinner.component';
 import { LoaderInterceptor } from 'src/interceptors/loader.interceptor';
 import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 
 @NgModule({
   declarations: [
@@ -40,7 +39,6 @@ import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
     BrowserAnimationsModule,
     NgbModule,
     ReactiveFormsModule,
-    MatProgressSpinnerModule,
   ],
   providers: [
     {
