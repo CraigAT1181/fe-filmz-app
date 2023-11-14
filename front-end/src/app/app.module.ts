@@ -13,12 +13,14 @@ import { FilmPageComponent } from './components/film-page/film-page.component';
 import { FilmSynopsisCardComponent } from './components/film-synopsis-card/film-synopsis-card.component';
 import { SearchResultsPageComponent } from './components/search-results-page/search-results-page.component';
 import { ReactiveFormsModule } from '@angular/forms';
+
 import { FriendsPageComponent } from './components/friends-page/friends-page.component';
 import { FriendsCardComponent } from './components/friends-card/friends-card.component';
 import { WatchlistComponent } from './components/watchlist/watchlist.component';
 import { ReviewPageComponent } from './components/review-page/review-page.component';
 import { ReviewsCardComponent } from './components/reviews-card/reviews-card.component';
 import { LoginPageComponent } from './components/login-page/login-page.component';
+
 
 @NgModule({
   declarations: [
@@ -31,7 +33,7 @@ import { LoginPageComponent } from './components/login-page/login-page.component
     FilmPageComponent,
     FilmSynopsisCardComponent,
     SearchResultsPageComponent,
-    FriendsPageComponent,
+     FriendsPageComponent,
     FriendsCardComponent,
     WatchlistComponent,
     ReviewPageComponent,
