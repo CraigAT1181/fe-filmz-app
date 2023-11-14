@@ -51,7 +51,7 @@
         data-bs-toggle="tooltip"
         data-bs-placement="bottom"
         title="Watched"
-        (click)="toggleWatched()"
+        
       >
         <ng-container *ngIf="watched; else notWatched">
           <i class="bi bi-eye-slash"></i>
@@ -73,7 +73,7 @@
         data-bs-toggle="tooltip"
         data-bs-placement="bottom"
         title="Add to watchlist"
-        (click)="toggleWatchlisted()"
+        
       >
         <ng-container *ngIf="watchlisted; else notWatchListed">
           <i class="bi bi-plus-lg"></i>
