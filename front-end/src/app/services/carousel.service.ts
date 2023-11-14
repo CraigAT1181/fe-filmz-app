@@ -16,7 +16,7 @@ export class CarouselService {
     } else if (screenWidth < 1200) {
       return 4;
     } else {
-      return 5;
+      return 4;
     }
   }
 }

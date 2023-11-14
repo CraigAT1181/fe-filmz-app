@@ -11,4 +11,14 @@ export class FilmCardComponent {
   @Input() watchlisted: boolean = false;
   @Input() imageNull!: boolean;
   @Input() filmCard!: FilmCardable;
+
+  getRatingColor(rating: number): string {
+    if (rating > 70) {
+      return 'green';
+    } else if (rating > 40) {
+      return 'yellow';
+    } else {
+      return 'red';
+    }
+  }
 }
