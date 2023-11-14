@@ -24,17 +24,19 @@ export class FriendsPageComponent {
 
   getFriendsList(): void {
     const userid = Number(this.route.snapshot.paramMap.get('userid'));
-    console.log(userid);
 
     this.friendsService.getFriends(userid).then(({ data }) => {
-      console.log(data);
-
       data.forEach((result: any, index: number) => {
         const friendCard = {
           id: result.friend_id,
-          img: '../assets/profile.jpg',
+          img: '',
+          // result.avatar,
           name: result.friend_name,
-          recentReviews: ['', '', ''],
+          recentReviews: [ '', '', ''
+            // result.reviews[0],
+            // result.reviews[1],
+            // result.reviews[2],
+          ],
         };
 
         this.friendCards.push(friendCard);

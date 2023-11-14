@@ -1,0 +1,23 @@
+<h2 class="d-flex justify-content-center">Your Watch List</h2>
+
+<div
+  class="btn-group, d-flex justify-content-center"
+  role="group"
+  aria-label="Basic checkbox toggle button group"
+>
+  <input type="checkbox" class="btn-check" id="btncheck1" autocomplete="off" (change)="onWatchedChange($event)" />
+  <label class="btn btn-outline-primary" for="btncheck1">Watched</label>
+
+  <input type="checkbox" class="btn-check" id="btncheck3" autocomplete="off" (change)="onAllChange($event)" />
+  <label class="btn btn-outline-primary" for="btncheck3">All</label>
+</div>
+
+<div class="grid gap-3 d-flex justify-content-center">
+  <ul *ngIf="(watchStatus || !watchedUnchecked) || allChecked">
+    <app-film-card
+      class="p-2 g-col-6"
+      *ngFor="let filmCard of filmCards"
+      [filmCard]="filmCard"
+    ></app-film-card>
+  </ul>
+</div>

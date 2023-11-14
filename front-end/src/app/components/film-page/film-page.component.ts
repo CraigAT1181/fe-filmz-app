@@ -1,10 +1,9 @@
 import { Component } from '@angular/core';
 import { ActivatedRoute, ParamMap } from '@angular/router';
 import { Location } from '@angular/common';
-import { exampleFilms } from 'src/app/mock-film-cards';
-import { FilmCardable } from 'src/app/interfaces/filmCard';
-import { TmdbApiService } from 'src/app/services/tmdb-api.service';
-import { SynopsisCardable } from 'src/app/interfaces/synopsis';
+import { FilmCardable } from '../../interfaces/filmCard';
+import { TmdbApiService } from '../../services/tmdb-api.service';
+import { SynopsisCardable } from '../../interfaces/synopsis';
 
 @Component({
   selector: 'app-film-page',
