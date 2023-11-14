@@ -6,18 +6,20 @@ import { SearchResultsPageComponent } from './components/search-results-page/sea
 import { FriendsPageComponent } from './components/friends-page/friends-page.component';
 import { WatchlistComponent } from './components/watchlist/watchlist.component';
 import { ReviewPageComponent } from './components/review-page/review-page.component';
+import { LoginPageComponent } from './components/login-page/login-page.component';
 
 const routes: Routes = [
-  {path: "film/:id", component: FilmPageComponent},
-  {path: "", component: HomeComponent},
-  {path: "search", component: SearchResultsPageComponent},
-  {path: "users/:userid/friends", component: FriendsPageComponent},
-  {path: "users/:userid/watchlist", component: WatchlistComponent},
-  {path: "users/:userid/reviews", component: ReviewPageComponent}
+  { path: 'film/:id', component: FilmPageComponent },
+  { path: '', component: HomeComponent },
+  { path: 'search', component: SearchResultsPageComponent },
+  { path: 'users/:userid/friends', component: FriendsPageComponent },
+  { path: 'users/:userid/watchlist', component: WatchlistComponent },
+  { path: 'users/:userid/reviews', component: ReviewPageComponent },
+  { path: 'login', component: LoginPageComponent },
 ];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
-  exports: [RouterModule]
+  exports: [RouterModule],
 })
-export class AppRoutingModule { }
+export class AppRoutingModule {}
