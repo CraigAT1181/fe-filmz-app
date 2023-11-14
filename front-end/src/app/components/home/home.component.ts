@@ -17,10 +17,16 @@ export class HomeComponent {
     this.tmdbApiService.getPopularFilms().then(({ data }) => {
       console.log(data);
       data.forEach((result: any, index: number) => {
+        let imageSource;
+        if (result.poster_path === null) {
+          imageSource = 'assets/image-not-found.png';
+        } else {
+          imageSource = `https://image.tmdb.org/t/p/w500${result.poster_path}`;
+        }
         const filmCard = {
           id: result.id,
           title: result.title,
-          img: `https://image.tmdb.org/t/p/w500${result.poster_path}`,
+          img: imageSource,
           avgRating: 4,
           friendReviews: ['barbara,Harry'],
         };

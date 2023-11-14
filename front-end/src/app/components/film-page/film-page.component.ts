@@ -1,10 +1,9 @@
 import { Component } from '@angular/core';
 import { ActivatedRoute, ParamMap } from '@angular/router';
 import { Location } from '@angular/common';
-import { exampleFilms } from 'src/app/mock-film-cards';
-import { FilmCardable } from 'src/app/interfaces/filmCard';
 import { TmdbApiService } from 'src/app/services/tmdb-api.service';
 import { SynopsisCardable } from 'src/app/interfaces/synopsis-card';
+import { endWith } from 'rxjs';
 
 @Component({
   selector: 'app-film-page',
@@ -13,6 +12,7 @@ import { SynopsisCardable } from 'src/app/interfaces/synopsis-card';
 })
 export class FilmPageComponent {
   synopsisCard!: SynopsisCardable;
+  isLoaded!: boolean;
 
   constructor(
     private route: ActivatedRoute,
@@ -23,7 +23,6 @@ export class FilmPageComponent {
   ngOnInit(): void {
     this.getFilmDetails();
   }
-
   getGenres(genres: []): string[] {
     const filmGenres = genres.map((genre: any) => {
       return genre.name;
@@ -33,19 +32,29 @@ export class FilmPageComponent {
 
   getDirector(crew: []): string[] {
     const director = crew.filter(({ job }) => job === 'Director');
+    console.log('director', director);
+    if (director.length === 0) {
+      return ['Not applicable'];
+    }
     return director[0]['name'];
   }
-
   // Accessing our back-end
   getFilmDetails(): void {
     const id = Number(this.route.snapshot.paramMap.get('id'));
     this.tmdbApiService
       .getFilmById(id)
       .then(({ data }) => {
-        console.log('data', data.poster_path);
+        const nullImage = 'assets/image-not-found.png';
+        let imageSource;
+        console.log(data);
+        if (data.poster_path === null) {
+          imageSource = 'assets/image-not-found.png';
+        } else {
+          imageSource = `https://image.tmdb.org/t/p/w500${data.poster_path}`;
+        }
         this.synopsisCard = {
           title: data.title,
-          image: `https://image.tmdb.org/t/p/w500${data.poster_path}`,
+          image: imageSource,
           year: data.release_date.slice(0, 4),
           overview: data.overview,
           language: data.original_language,
@@ -60,6 +69,7 @@ export class FilmPageComponent {
             data.credits.cast[3].name,
           ].join(', '),
         };
+        this.isLoaded = true;
       })
       .catch((error) => {
         console.log('Error', error);

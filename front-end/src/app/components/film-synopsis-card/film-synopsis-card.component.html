@@ -1,12 +1,12 @@
 <div class="card mb-3">
-  <!-- <img
-    src="{{ synopsisCard.image }}"
+  <img
+    [src]="synopsisCard.image"
     class="mx-auto card-img"
     alt="Poster of {{ synopsisCard.title }}"
-  /> -->
+  />
   <section id="synopsis-card-section">
-    <!-- <h2>{{ synopsisCard.title }} ({{ synopsisCard.year }})</h2> -->
-    <!-- <h6>Rating: {{ synopsisCard.avgRating }}</h6> -->
+    <h2>{{ synopsisCard.title }} ({{ synopsisCard.year }})</h2>
+    <h6>Rating: {{ synopsisCard.avgRating }}</h6>
     <h5 class="card-title">Overview:</h5>
     <p class="card-text">{{ synopsisCard.overview }}</p>
     <ul class="extra-details">
