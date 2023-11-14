@@ -13,7 +13,6 @@ import { FilmPageComponent } from './components/film-page/film-page.component';
 import { FilmSynopsisCardComponent } from './components/film-synopsis-card/film-synopsis-card.component';
 import { SearchResultsPageComponent } from './components/search-results-page/search-results-page.component';
 import { ReactiveFormsModule } from '@angular/forms';
-import { LoaderInterceptor } from 'src/interceptors/loader.interceptor';
 import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
@@ -37,13 +36,6 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     BrowserAnimationsModule,
     NgbModule,
     ReactiveFormsModule,
-  ],
-  providers: [
-    {
-      provide: HTTP_INTERCEPTORS,
-      useClass: LoaderInterceptor,
-      multi: true,
-    },
   ],
   bootstrap: [AppComponent],
 })
