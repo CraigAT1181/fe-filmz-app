@@ -55,8 +55,6 @@ export class FriendsPageComponent {
                 review.film_id
               );
 
-              console.log(data);
-
               return {
                 filmPoster: `https://image.tmdb.org/t/p/w500${data.poster_path}`,
                 film_id: data.id,
@@ -69,7 +67,6 @@ export class FriendsPageComponent {
             name: reviewInfo[0].username,
             reviews: reviewsData.slice(0, 2),
           };
-          console.log(friendCard.reviews);
 
           this.friendCards.push(friendCard);
         }
