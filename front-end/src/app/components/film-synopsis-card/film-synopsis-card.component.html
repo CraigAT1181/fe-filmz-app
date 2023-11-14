@@ -1,8 +1,8 @@
 <div class="card mb-3">
   <img
-    src="{{ synopsisCard.image }}"
+    [src]="synopsisCard.image"
     class="mx-auto card-img"
-    alt="{{ synopsisCard.image }} image"
+    alt="Poster of {{ synopsisCard.title }}"
   />
   <section id="synopsis-card-section">
     <h2>{{ synopsisCard.title }} ({{ synopsisCard.year }})</h2>

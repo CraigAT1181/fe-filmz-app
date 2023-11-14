@@ -1,5 +1,5 @@
 import { Component, Input } from '@angular/core';
-import { SynopsisCardable } from 'src/app/interfaces/synopsis';
+import { SynopsisCardable } from 'src/app/interfaces/synopsis-card';
 
 @Component({
   selector: 'app-film-synopsis-card',

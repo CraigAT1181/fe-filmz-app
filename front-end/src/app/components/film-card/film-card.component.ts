@@ -9,7 +9,6 @@ import { FilmCardable } from 'src/app/interfaces/filmCard';
 export class FilmCardComponent {
   @Input() watched: boolean = false;
   @Input() watchlisted: boolean = false;
-  @Input() imageNull!: boolean;
   @Input() filmCard!: FilmCardable;
 
   getRatingColor(rating: number): string {
