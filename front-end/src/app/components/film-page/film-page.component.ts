@@ -46,10 +46,9 @@ export class FilmPageComponent {
     this.tmdbApiService
       .getFilmById(id)
       .then(({ data }) => {
-
         this.synopsisCard = {
           title: data.title,
-          image: `https://image.tmdb.org/t/p/w500${data.poster_path}`,
+          image: `https://image.tmdb.org/t/p/w500${data.backdrop_path}`,
           year: data.release_date.slice(0, 4),
           overview: data.overview,
           language: data.original_language,

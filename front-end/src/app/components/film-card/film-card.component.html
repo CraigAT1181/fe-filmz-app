@@ -1,13 +1,27 @@
 <div class="container-fluid justify-content-center">
-  <div class="row">
+  <div class="row m-2">
     <div class="col">
-      <p class="h6 text-start">Rating: {{ filmCard.avgRating }}</p>
+      <div class="progress">
+        <div
+          class="progress-bar"
+          role="progressbar"
+          [style.width.%]="filmCard.avgRating * 20"
+          [style.backgroundColor]="getRatingColor(filmCard.avgRating * 20)"
+          aria-valuemin="0"
+          aria-valuemax="10"
+        >
+          {{ filmCard.avgRating * 20 }}%
+        </div>
+      </div>
     </div>
   </div>
 
-  <div class="row">
+  <div class="row row-title">
     <div class="col text-center">
-      <a routerLink="/film/{{ filmCard.id }}" class="text-decoration-none fs-6">
+      <a
+        routerLink="/film/{{ filmCard.id }}"
+        class="text-dark text-decoration-none fs-6"
+      >
         <h6>{{ filmCard.title }}</h6>
       </a>
     </div>
@@ -18,21 +32,25 @@
       <a routerLink="/film/{{ filmCard.id }}">
         <img
           src="{{ filmCard.img }}"
-          class="img-fluid max-img-height"
+          class="img-fluid max-img-height image-hover-effect"
           alt="Picture of {{ filmCard.title }}"
         />
       </a>
     </div>
   </div>
 
-  <div class="row mt-2">
+  <div class="row mt-2 g-0">
     <div class="col d-flex justify-content-end">
       <button
+        type="button"
         class="btn"
         [ngClass]="{
           'btn-outline-primary': !watched,
           'btn-outline-success': watched
         }"
+        data-bs-toggle="tooltip"
+        data-bs-placement="bottom"
+        title="Watched"
         (click)="toggleWatched()"
       >
         <ng-container *ngIf="watched; else notWatched">
@@ -46,11 +64,15 @@
 
     <div class="col d-flex justify-content-center">
       <button
+        type="button"
         class="btn"
         [ngClass]="{
           'btn-outline-primary': !watchlisted,
           'btn-outline-success': watchlisted
         }"
+        data-bs-toggle="tooltip"
+        data-bs-placement="bottom"
+        title="Add to watchlist"
         (click)="toggleWatchlisted()"
       >
         <ng-container *ngIf="watchlisted; else notWatchListed">
@@ -63,7 +85,13 @@
     </div>
 
     <div class="col d-flex justify-content-start">
-      <button class="btn btn-outline-primary">
+      <button
+        type="button"
+        class="btn btn-outline-primary"
+        data-bs-toggle="tooltip"
+        data-bs-placement="bottom"
+        title="Write Review"
+      >
         <i class="bi bi-pencil"></i>
       </button>
     </div>
