@@ -33,7 +33,7 @@ export class FilmPageComponent {
 
   getDirector(crew: []): string[] {
     const director = crew.filter(({ job }) => job === 'Director');
-    console.log('director', director);
+    
     if (director.length === 0) {
       return ['Not applicable'];
     }
@@ -47,7 +47,7 @@ export class FilmPageComponent {
       .then(({ data }) => {
         const nullImage = 'assets/image-not-found.png';
         let imageSource;
-        console.log(data);
+        
         if (data.poster_path === null) {
           imageSource = 'assets/image-not-found.png';
         } else {
@@ -73,7 +73,7 @@ export class FilmPageComponent {
         this.isLoaded = true;
       })
       .catch((error) => {
-        console.log('Error', error);
+        console.error('Error', error);
       });
   }
 }

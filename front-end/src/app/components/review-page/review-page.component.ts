@@ -17,7 +17,7 @@ export class ReviewPageComponent {
   getReviews(): void {
     const userid = Number(this.route.snapshot.paramMap.get("userid"))
     this.ReviewsService.getReviewsByUserId(userid).then(({data: {reviews}})=>{
-      console.log(reviews)
+      
       reviews.forEach((result: any, index: number) => {
         const reviewCard = {
           username: result.username, 
@@ -29,7 +29,7 @@ export class ReviewPageComponent {
           title: "movie title"
         }
         this.reviewCards.push(reviewCard)
-        console.log(reviewCard)
+        
       });
     })
   }
