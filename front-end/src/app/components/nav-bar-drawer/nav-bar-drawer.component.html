@@ -1,30 +1,65 @@
-<a
-  class="btn btn-primary"
-  data-bs-toggle="offcanvas"
-  href="#offcanvasExample"
-  role="button"
-  aria-controls="offcanvasExample"
->
-  Profile Picture
-</a>
+<!-- <nav class="navbar fixed-top navbar-dark bg-dark">
+  <div class="container-fluid">
+    <a
+      data-bs-toggle="offcanvas"
+      href="#offcanvasExample"
+      aria-controls="offcanvasExample"
+    >
+      <button class="btn btn-outline-success">
+        <i class="bi bi-list"></i>
+      </button>
+    </a>
+    <a class="navbar-brand" routerLink=""
+      ><img src="../../../../assets/logo.png" alt="BigFilmFreakz"
+    /></a>
+  </div>
 
-<div
-  class="offcanvas offcanvas-start"
-  tabindex="-1"
-  id="offcanvasExample"
-  aria-labelledby="offcanvasExampleLabel"
->
-  <div class="offcanvas-header">
-    <h5 class="offcanvas-title" id="offcanvasExampleLabel">Menu</h5>
+  <div
+    class="offcanvas offcanvas-start"
+    tabindex="-1"
+    id="offcanvasExample"
+    aria-labelledby="offcanvasExampleLabel"
+  >
+    <div class="offcanvas-header">
+      <h5 class="offcanvas-title" id="offcanvasExampleLabel">Menu</h5>
+      <button
+        type="button"
+        class="btn-close text-reset"
+        data-bs-dismiss="offcanvas"
+        aria-label="Close"
+      ></button>
+    </div>
+    <div class="offcanvas-body">
+      <div>Placeholder Text</div>
+      <a routerLink="/help" data-bs-dismiss="offcanvas">Helppppppppp</a>
+    </div>
+  </div>
+</nav> -->
+
+<nav class="navbar navbar-expand-lg fixed-top navbar-dark bg-dark mb-5">
+  <div class="container-fluid">
+    <a class="navbar-brand" routerLink=""
+      ><img src="../../../../assets/logo.png" alt="BigFilmFreakz"
+    /></a>
     <button
+      class="navbar-toggler"
       type="button"
-      class="btn-close text-reset"
-      data-bs-dismiss="offcanvas"
-      aria-label="Close"
-    ></button>
+      data-bs-toggle="collapse"
+      data-bs-target="#navbarSupportedContent"
+      aria-controls="navbarSupportedContent"
+      aria-expanded="false"
+      aria-label="Toggle navigation"
+    >
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <div class="navbar-nav me-auto mb-2 mb-lg-0">
+        <a class="nav-link" routerLink="#">Friends</a>
+        <a class="nav-link" routerLink="#">Watchlist</a>
+        <a class="nav-link" routerLink="#">Watchparty</a>
+        <a class="nav-link" routerLink="#">Sign In</a>
+      </div>
+      <app-search-bar></app-search-bar>
+    </div>
   </div>
-  <div class="offcanvas-body">
-    <div>Placeholder Text</div>
-    <a routerLink="/help" data-bs-dismiss="offcanvas">Helppppppppp</a>
-  </div>
-</div>
+</nav>

@@ -20,6 +20,15 @@ export class FilmCardComponent {
     this.watchlisted ? (this.watchlisted = false) : (this.watchlisted = true);
   }
 
-  // this.filmCard.img === null ? this.imageNull=true : this.imageNull = false;
+  getRatingColor(rating: number): string {
+    if (rating > 70) {
+      return 'green';
+    } else if (rating > 40) {
+      return 'yellow';
+    } else {
+      return 'red';
+    }
+  }
 
+  // this.filmCard.img === null ? this.imageNull=true : this.imageNull = false;
 }
