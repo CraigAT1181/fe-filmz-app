@@ -1,4 +1,5 @@
 import { NgModule } from '@angular/core';
+import { FormsModule } from '@angular/forms';
 import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -17,6 +18,7 @@ import { FriendsCardComponent } from './components/friends-card/friends-card.com
 import { WatchlistComponent } from './components/watchlist/watchlist.component';
 import { ReviewPageComponent } from './components/review-page/review-page.component';
 import { ReviewsCardComponent } from './components/reviews-card/reviews-card.component';
+import { LoginPageComponent } from './components/login-page/login-page.component';
 
 @NgModule({
   declarations: [
@@ -34,8 +36,15 @@ import { ReviewsCardComponent } from './components/reviews-card/reviews-card.com
     WatchlistComponent,
     ReviewPageComponent,
     ReviewsCardComponent,
+    LoginPageComponent,
   ],
-  imports: [BrowserModule, AppRoutingModule, NgbModule, ReactiveFormsModule],
+  imports: [
+    BrowserModule,
+    AppRoutingModule,
+    NgbModule,
+    ReactiveFormsModule,
+    FormsModule,
+  ],
   providers: [],
   bootstrap: [AppComponent],
 })
