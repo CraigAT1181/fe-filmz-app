@@ -6,6 +6,17 @@ import { SearchResultsPageComponent } from './components/search-results-page/sea
 import { FriendsPageComponent } from './components/friends-page/friends-page.component';
 import { WatchlistComponent } from './components/watchlist/watchlist.component';
 import { ReviewPageComponent } from './components/review-page/review-page.component';
+
+import { HelpPageComponent } from './components/help-page/help-page.component';
+
+const routes: Routes = [
+  {path: "film/:id", component: FilmPageComponent},
+  {path: "", component: HomeComponent},
+  {path: "search", component: SearchResultsPageComponent},
+  {path: "users/:userid/friends", component: FriendsPageComponent},
+  {path: "users/:userid/reviews", component: ReviewPageComponent},
+  {path: "help", component: HelpPageComponent }
+
 import { LoginPageComponent } from './components/login-page/login-page.component';
 
 const routes: Routes = [
