@@ -23,9 +23,9 @@
           {{ synopsisCard.runtime }} mins
         </div>
 
-        <div class="mt-1">
-          <strong>Directed by:</strong>
-          {{ synopsisCard.director }}
+        <div class="text-muted mt-1 mb-3">
+          Directed by:
+          <strong>{{ synopsisCard.director }}</strong>
         </div>
 
         <div class="progress-max-width mt-1 mb-3">
@@ -62,8 +62,10 @@
                   alt="{{ actor }}"
                   class="card-img-top actor-image"
                 />
-                <div class="card-body">
-                  <p class="card-text custom-text-actor">{{ actor }}</p>
+                <div class="card-body p-1">
+                  <p class="card-text custom-text-actor mb-1 mt-1 ml-0 mr-0">
+                    {{ actor }}
+                  </p>
                   <p class="card-text custom-text-character">
                     {{ synopsisCard.actors_character[i] }}
                   </p>
