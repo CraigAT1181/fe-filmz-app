@@ -1,14 +1,35 @@
-<section class="container">
-<section class="friend-identifier">
-    <img [ngStyle]="{'width': '50px'}" src="{{friendCard.img}}" alt="">
-    <h3>{{friendCard.name}}</h3>
-</section>
-<section class="review-array">
-    <p>Recent Reviews:</p>
-    <ul>
-        <button>1</button>
-        <button>2</button>
-        <button>3</button>
-    </ul>
-</section>
-</section>
+<div class="card" style="width: 18rem">
+  <img src="{{ friendCard.img }}" class="card-img-top" alt="..." />
+  <div class="card-body">
+    <h5 class="card-title">{{ friendCard.name }}</h5>
+    <p class="card-text">Recent reviews:</p>
+    <div class="container text-centre">
+      <div class="d-flex justify-content-evenly">
+        <ng-container *ngIf="friendCard.reviews[0]">
+          <a routerLink="/film/{{ friendCard.reviews[0].film_id }}"
+            ><img
+              style="width: 100px"
+              src="{{ friendCard.reviews[0].filmPoster }}"
+              alt=""
+          /></a>
+        </ng-container>
+        <ng-container *ngIf="friendCard.reviews[1]">
+          <a routerLink="/film/{{ friendCard.reviews[1].film_id }}"
+            ><img
+              style="width: 100px"
+              src="{{ friendCard.reviews[1].filmPoster }}"
+              alt=""
+          /></a>
+        </ng-container>
+        <ng-container *ngIf="friendCard.reviews[2]">
+          <a routerLink="/film/{{ friendCard.reviews[2].film_id }}"
+            ><img
+              style="width: 100px"
+              src="{{ friendCard.reviews[2].filmPoster }}"
+              alt=""
+          /></a>
+        </ng-container>
+      </div>
+    </div>
+  </div>
+</div>

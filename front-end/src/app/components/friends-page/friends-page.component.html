@@ -1,8 +1,11 @@
-<section class="friends-display">
-  <ul>
-      <app-friends-card
+<ng-container *ngIf="!isLoaded"><div *ngIf="!isLoaded">Loading...</div></ng-container>
+<ng-container *ngIf="isLoaded">
+<section class="container-fluid, d-flex justify-content-center">
+  <ul class="grid gap-3">
+      <app-friends-card class="p-2 g-col-6"
         *ngFor="let friendCard of friendCards"
         [friendCard]="friendCard"
       ></app-friends-card>
   </ul>
 </section>
+</ng-container>

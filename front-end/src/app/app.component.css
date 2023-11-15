@@ -1,3 +1,4 @@
+
 .header-container {
     display: grid; 
   grid-template-columns: 1fr 4fr; 
@@ -13,4 +14,8 @@
 
 .card1 {
     grid-area: card1;
+}
+
+.main-spacing {
+  margin-top: 4.5rem;
 }

@@ -1,8 +1,8 @@
 import { Component } from '@angular/core';
-import { ActivatedRoute, ParamMap } from '@angular/router';
-import { Location } from '@angular/common';
+import { ActivatedRoute } from '@angular/router';
 import { FriendCardable } from 'src/app/interfaces/friendCard';
 import { FriendsService } from 'src/app/services/friends.service';
+import { TmdbApiService } from 'src/app/services/tmdb-api.service';
 
 @Component({
   selector: 'app-friends-page',
@@ -11,34 +11,71 @@ import { FriendsService } from 'src/app/services/friends.service';
 })
 export class FriendsPageComponent {
   friendCards: FriendCardable[] = [];
+  userAvatar: string = '';
+  recentReviews: any[] = [];
+  isLoaded!: boolean;
 
   constructor(
     private friendsService: FriendsService,
-    private location: Location,
-    private route: ActivatedRoute
+    private route: ActivatedRoute,
+    private tmdbApiService: TmdbApiService
   ) {}
 
   ngOnInit(): void {
-    this.getFriendsList();
+    this.route.paramMap.subscribe((params) => {
+      const userid = Number(params.get('userid'));
+      this.getFriendsList(userid);
+    });
   }
 
-  getFriendsList(): void {
-    const userid = Number(this.route.snapshot.paramMap.get('userid'));
-    console.log(userid);
+  async getReviews(friendid: number): Promise<any[]> {
+    try {
+      const { data } = await this.friendsService.getUserReviews(friendid);
+      return data.reviews;
+    } catch (error) {
+      console.error('Error fetching user info:', error);
+      return [];
+    }
+  }
 
-    this.friendsService.getFriends(userid).then(({ data }) => {
-      console.log(data);
+  async getFriendsList(userid: number) {
+    try {
+      const { data } = await this.friendsService.getFriends(userid);
 
-      data.forEach((result: any, index: number) => {
-        const friendCard = {
-          id: result.friend_id,
-          img: '../assets/profile.jpg',
-          name: result.friend_name,
-          recentReviews: ['', '', ''],
-        };
+      const reviewsPromises = data.map((result: any) =>
+        this.getReviews(result.friend_id)
+      );
+      const reviews = await Promise.all(reviewsPromises);
 
-        this.friendCards.push(friendCard);
-      });
-    });
+      const processReviews = async (reviews: any[]) => {
+        for (const reviewInfo of reviews) {
+          const reviewsData = await Promise.all(
+            reviewInfo.map(async (review: any) => {
+              const { data } = await this.tmdbApiService.getFilmById(
+                review.film_id
+              );
+
+              return {
+                filmPoster: `https://image.tmdb.org/t/p/w500${data.poster_path}`,
+                film_id: data.id,
+              };
+            })
+          );
+
+          const friendCard = {
+            img: reviewInfo[0].avatar,
+            name: reviewInfo[0].username,
+            reviews: reviewsData.slice(0, 2),
+          };
+
+          this.friendCards.push(friendCard);
+        }
+      };
+
+      await processReviews(reviews);
+      this.isLoaded = true;
+    } catch (error) {
+      console.error('Error fetching friends list:', error);
+    }
   }
 }

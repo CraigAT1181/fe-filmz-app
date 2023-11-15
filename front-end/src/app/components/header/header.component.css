@@ -1,3 +1,4 @@
+
 h1 {
     margin: 2rem;
     color: white;
@@ -14,3 +15,8 @@ a{
     align-items: center;
     justify-items: center;
 } */
+
+.header {
+  margin-top: 4rem;
+}
+

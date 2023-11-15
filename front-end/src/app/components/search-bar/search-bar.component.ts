@@ -16,7 +16,7 @@ export class SearchBarComponent {
 
   onSubmit(): void {
     const searchQuery = this.checkoutForm.value.searchTerm;
-    console.log(searchQuery);
+    
     this.router.navigate([`/search`], { queryParams: { title: searchQuery } });
   }
 }

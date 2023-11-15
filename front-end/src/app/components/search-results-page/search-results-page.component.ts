@@ -26,14 +26,19 @@ export class SearchResultsPageComponent {
     const rawQuery = this.route.snapshot.queryParams;
     const queryKey = Object.keys(rawQuery)[0]; // to be used later when search query functionality is built out to include other criteria e.g. search by genre, actor etc
     const queryValue = Object.values(rawQuery)[0];
-    console.log(queryValue);
+
     this.tmdbApiService.getFilmByTitle(queryValue).then(({ data }) => {
-      console.log(data);
       data.forEach((result: any, index: number) => {
+        let imageSource;
+        if (result.poster_path === null) {
+          imageSource = 'assets/image-not-found.png';
+        } else {
+          imageSource = `https://image.tmdb.org/t/p/w500${result.poster_path}`;
+        }
         const filmCard = {
           id: result.id,
           title: result.title,
-          img: `https://image.tmdb.org/t/p/w500${result.poster_path}`,
+          img: imageSource,
           avgRating: 4,
           friendReviews: ['barbara,Harry'],
         };
