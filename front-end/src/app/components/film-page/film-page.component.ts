@@ -53,8 +53,6 @@ export class FilmPageComponent {
       }
       const nullImage = 'assets/image-not-found.png';
       let imageSource;
-
-      console.log(rating.data);
       if (data.poster_path === null) {
         imageSource = 'assets/image-not-found.png';
       } else {
