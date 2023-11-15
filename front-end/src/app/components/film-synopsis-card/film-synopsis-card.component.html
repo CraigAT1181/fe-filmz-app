@@ -1,20 +1,80 @@
-<div class="card mb-3">
-  <img
-    [src]="synopsisCard.image"
-    class="mx-auto card-img"
-    alt="Poster of {{ synopsisCard.title }}"
-  />
-  <section id="synopsis-card-section">
-    <h2>{{ synopsisCard.title }} ({{ synopsisCard.year }})</h2>
-    <h6>Rating: {{ synopsisCard.avgRating }}</h6>
-    <h5 class="card-title">Overview:</h5>
-    <p class="card-text">{{ synopsisCard.overview }}</p>
-    <ul class="extra-details">
-      <li>Runtime: {{ synopsisCard.runtime }} mins</li>
-      <li>Genre: {{ synopsisCard.genre }}</li>
-      <li>Directed by: {{ synopsisCard.director }}</li>
-      <li>Starring: {{ synopsisCard.actors }}</li>
-      <li>Language: {{ synopsisCard.language }}</li>
-    </ul>
-  </section>
+<div class="container-fluid">
+  <div class="mb-3 film-background">
+    <div class="row">
+      <div class="col-4 d-flex justify-content-end align-items-center">
+        <img
+          [src]="synopsisCard.image"
+          s
+          class="card-img image-max-height"
+          alt="Poster of {{ synopsisCard.title }}"
+        />
+      </div>
+      <div class="col-8 d-flex flex-column justify-content-center">
+        <h2 class="display-6">
+          {{ synopsisCard.title }} ({{ synopsisCard.year }})
+        </h2>
+
+        <div class="text-muted d-flex align-items-center mb-2">
+          {{ synopsisCard.date }}&nbsp;
+          <span class="text-uppercase">({{ synopsisCard.language }})</span>
+          <span class="font-weight-bold dot-margin">•</span>
+          <em>{{ synopsisCard.genre }}</em>
+          <span class="font-weight-bold dot-margin">•</span>
+          {{ synopsisCard.runtime }} mins
+        </div>
+
+        <div class="text-muted mt-1 mb-3">
+          Directed by:
+          <strong>{{ synopsisCard.director }}</strong>
+        </div>
+
+        <div class="progress-max-width mt-1 mb-3">
+          <div class="progress border border-dark" style="height: 30px">
+            <div
+              class="progress-bar"
+              role="progressbar"
+              [style.width.%]="synopsisCard.avgRating * 20"
+              [style.backgroundColor]="
+                getRatingColor(synopsisCard.avgRating * 20)
+              "
+              aria-valuemin="0"
+              aria-valuemax="100"
+            >
+              {{ synopsisCard.avgRating * 20 }}%
+            </div>
+          </div>
+        </div>
+
+        <div>
+          <h6>Overview</h6>
+          <p>{{ synopsisCard.overview }}</p>
+        </div>
+
+        <div class="mt-1">
+          <h6>Cast</h6>
+          <div class="d-flex">
+            <ng-container
+              *ngFor="let actor of synopsisCard.actors_name; let i = index"
+            >
+              <div class="card actor-card">
+                <img
+                  src="{{ synopsisCard.actors_pic[i] }}"
+                  alt="{{ actor }}"
+                  class="card-img-top actor-image"
+                />
+                <div class="card-body p-1">
+                  <p class="card-text custom-text-actor mb-1 mt-1 ml-0 mr-0">
+                    {{ actor }}
+                  </p>
+                  <p class="card-text custom-text-character">
+                    {{ synopsisCard.actors_character[i] }}
+                  </p>
+                </div>
+              </div>
+            </ng-container>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
 </div>

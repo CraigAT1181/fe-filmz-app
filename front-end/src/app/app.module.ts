@@ -19,6 +19,7 @@ import { ReviewPageComponent } from './components/review-page/review-page.compon
 import { ReviewsCardComponent } from './components/reviews-card/reviews-card.component';
 import { LoginPageComponent } from './components/login-page/login-page.component';
 import { SignUpComponent } from './components/sign-up/sign-up.component';
+import { FriendsReviewsComponent } from './components/friends-reviews/friends-reviews.component';
 
 @NgModule({
   declarations: [
@@ -37,6 +38,7 @@ import { SignUpComponent } from './components/sign-up/sign-up.component';
     ReviewsCardComponent,
     LoginPageComponent,
     SignUpComponent,
+    FriendsReviewsComponent,
   ],
   imports: [
     BrowserModule,
