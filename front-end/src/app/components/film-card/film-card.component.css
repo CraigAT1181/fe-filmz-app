@@ -1,10 +1,6 @@
 .max-img-height {
-  height: 300px;
-}
-
-.row-title {
-  height: 40px;
-  align-items: center;
+  width: auto;
+  height: 250px;
 }
 
 .image-hover-effect:hover {

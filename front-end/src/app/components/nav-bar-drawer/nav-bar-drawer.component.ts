@@ -13,6 +13,10 @@ export class NavBarDrawerComponent {
     return this.authService.getLoggedIn();
   }
 
+  getUserId() {
+    return this.authService.getUserId();
+  }
+
   logout() {
     this.authService.logout();
   }
