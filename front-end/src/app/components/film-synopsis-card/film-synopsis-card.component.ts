@@ -8,4 +8,14 @@ import { SynopsisCardable } from 'src/app/interfaces/synopsis-card';
 })
 export class FilmSynopsisCardComponent {
   @Input() synopsisCard!: SynopsisCardable;
+
+  getRatingColor(rating: number): string {
+    if (rating > 70) {
+      return 'green';
+    } else if (rating > 40) {
+      return 'yellow';
+    } else {
+      return 'red';
+    }
+  }
 }

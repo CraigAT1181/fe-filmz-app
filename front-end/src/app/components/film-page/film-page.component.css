@@ -1,0 +1,20 @@
+.actor-image {
+  width: 100%;
+  height: auto;
+}
+
+.actor-card {
+  width: 100px;
+  height: 200px;
+  margin-right: 10px;
+}
+
+.custom-text-actor {
+  font-size: 0.7rem;
+  font-weight: bold;
+}
+
+.custom-text-character {
+  font-size: 0.7rem;
+  font-weight: lighter;
+}

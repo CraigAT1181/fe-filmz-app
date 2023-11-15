@@ -1,14 +1,12 @@
-<section class="film-info"></section>
-
 <ng-container *ngIf="!isLoaded">
   <div *ngIf="!isLoaded">Loading...</div>
 </ng-container>
+
 <ng-container *ngIf="isLoaded">
-  <section class="synopsis">
-    <app-film-synopsis-card [synopsisCard]="synopsisCard">
-    </app-film-synopsis-card>
-  </section>
+  <app-film-synopsis-card [synopsisCard]="synopsisCard">
+  </app-film-synopsis-card>
 </ng-container>
-<section class="friends-review-carousel">
-  <p>Friend Review Carousel</p>
-</section>
+
+<div>
+  <app-friends-reviews></app-friends-reviews>
+</div>
