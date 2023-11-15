@@ -18,6 +18,7 @@ const routes: Routes = [
   {path: "help", component: HelpPageComponent }
 
 import { LoginPageComponent } from './components/login-page/login-page.component';
+import { SignUpComponent } from './components/sign-up/sign-up.component';
 
 const routes: Routes = [
   { path: 'film/:id', component: FilmPageComponent },
@@ -27,6 +28,7 @@ const routes: Routes = [
   { path: 'users/:userid/watchlist', component: WatchlistComponent },
   { path: 'users/:userid/reviews', component: ReviewPageComponent },
   { path: 'login', component: LoginPageComponent },
+  { path: 'signup', component: SignUpComponent },
 ];
 
 @NgModule({
