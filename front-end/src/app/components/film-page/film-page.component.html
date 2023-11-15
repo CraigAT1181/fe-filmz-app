@@ -12,3 +12,9 @@
 <section class="friends-review-carousel">
   <p>Friend Review Carousel</p>
 </section>
+<section class="review-section">
+  <ng-container *ngFor="let card of reviewCards">
+    <app-reviews-card [reviewCard]="card">
+    </app-reviews-card>
+  </ng-container>
+</section>

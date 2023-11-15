@@ -4,6 +4,8 @@ import { Location } from '@angular/common';
 
 import { TmdbApiService } from 'src/app/services/tmdb-api.service';
 import { SynopsisCardable } from 'src/app/interfaces/synopsis-card';
+import { ReviewsService } from 'src/app/services/reviews.service';
+import { ReviewCardable } from 'src/app/interfaces/review-card';
 
 @Component({
   selector: 'app-film-page',
@@ -13,15 +15,18 @@ import { SynopsisCardable } from 'src/app/interfaces/synopsis-card';
 export class FilmPageComponent {
   synopsisCard!: SynopsisCardable;
   isLoaded!: boolean;
+  reviewCards: ReviewCardable[] = [];
 
   constructor(
     private route: ActivatedRoute,
     private location: Location,
-    private tmdbApiService: TmdbApiService
+    private tmdbApiService: TmdbApiService,
+    private reviewsService: ReviewsService
   ) {}
 
   ngOnInit(): void {
     this.getFilmDetails();
+    this.getFilmReviews();
   }
   getGenres(genres: []): string[] {
     const filmGenres = genres.map((genre: any) => {
@@ -29,8 +34,6 @@ export class FilmPageComponent {
     });
     return filmGenres;
   }
-
-  getAverageRating(id: number) {}
 
   getDirector(crew: []): string[] {
     const director = crew.filter(({ job }) => job === 'Director');
@@ -83,4 +86,27 @@ export class FilmPageComponent {
       console.error('Error', error);
     }
   }
+
+  async getFilmReviews(){
+    try {
+      const id = Number(this.route.snapshot.paramMap.get('id'));
+      const { data : {reviews} } = await this.reviewsService.getReviewsByFilmId(id)
+      reviews.forEach((review: any) => {
+        const reviewCard = {
+          rating: review.rating,
+          avatar: review.avatar,
+          body: review.body,
+          username: review.username,
+          createdAt: review.created_at,
+          title: review.original_title
+        }
+        
+        this.reviewCards.push(reviewCard)
+      });
+      console.log(this.reviewCards);
+      
+    }
+    catch{}
+  }
+
 }
