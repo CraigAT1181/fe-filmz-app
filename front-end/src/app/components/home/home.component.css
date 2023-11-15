@@ -2,3 +2,18 @@
   background-color: black;
   color: black;
 }
+
+.carousel-button-right {
+  max-width: 50px;
+  margin-left: 2rem;
+}
+
+.carousel-button-left {
+  max-width: 50px;
+  margin-right: 2rem;
+}
+
+.custom-icon {
+  font-size: 36px;
+  color: black;
+}
