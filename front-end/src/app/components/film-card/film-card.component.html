@@ -31,6 +31,7 @@
     <div class="col text-center">
       <a routerLink="/film/{{ filmCard.id }}">
         <img
+          style="max-width: 80%"
           src="{{ filmCard.img }}"
           class="img-fluid max-img-height image-hover-effect"
           alt="Picture of {{ filmCard.title }}"
@@ -45,13 +46,12 @@
         type="button"
         class="btn"
         [ngClass]="{
-          'btn-outline-primary': !watched,
-          'btn-outline-success': watched
+          'btn-outline-success': !watched,
+          'btn-outline-primary': watched
         }"
         data-bs-toggle="tooltip"
         data-bs-placement="bottom"
         title="Watched"
-        
       >
         <ng-container *ngIf="watched; else notWatched">
           <i class="bi bi-eye-slash"></i>
@@ -67,13 +67,12 @@
         type="button"
         class="btn"
         [ngClass]="{
-          'btn-outline-primary': !watchlisted,
-          'btn-outline-success': watchlisted
+          'btn-outline-success': !watchlisted,
+          'btn-outline-primary': watchlisted
         }"
         data-bs-toggle="tooltip"
         data-bs-placement="bottom"
         title="Add to watchlist"
-        
       >
         <ng-container *ngIf="watchlisted; else notWatchListed">
           <i class="bi bi-plus-lg"></i>
@@ -87,7 +86,7 @@
     <div class="col d-flex justify-content-start">
       <button
         type="button"
-        class="btn btn-outline-primary"
+        class="btn btn-outline-success"
         data-bs-toggle="tooltip"
         data-bs-placement="bottom"
         title="Write Review"

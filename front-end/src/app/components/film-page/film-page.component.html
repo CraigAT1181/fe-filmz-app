@@ -10,3 +10,9 @@
 <div>
   <app-friends-reviews></app-friends-reviews>
 </div>
+
+<section class="review-section">
+  <ng-container *ngFor="let card of reviewCards">
+    <app-reviews-card [reviewCard]="card"> </app-reviews-card>
+  </ng-container>
+</section>

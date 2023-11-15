@@ -1,7 +1,6 @@
 export interface SynopsisCardable {
   title: string;
   image: string;
-  background_image: string;
   year: number;
   date: string;
   overview: string;

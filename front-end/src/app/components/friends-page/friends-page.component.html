@@ -1,11 +1,26 @@
-<ng-container *ngIf="!isLoaded"><div *ngIf="!isLoaded">Loading...</div></ng-container>
-<ng-container *ngIf="isLoaded">
-<section class="container-fluid, d-flex justify-content-center">
-  <ul class="grid gap-3">
-      <app-friends-card class="p-2 g-col-6"
-        *ngFor="let friendCard of friendCards"
-        [friendCard]="friendCard"
-      ></app-friends-card>
-  </ul>
+<section class="container-fluid d-flex justify-content-center">
+  <ng-container *ngIf="!isLoaded">
+    <div>Loading...</div>
+  </ng-container>
+  <ng-container *ngIf="isLoaded">
+    <section>
+      <h2 style="text-align: center; margin-top: 2rem;">Your Friends Page</h2>
+
+      <ul
+        class="grid gap-5 p-0"
+        style="
+          display: flex;
+          flex-wrap: wrap;
+          margin-top: 2rem;
+          justify-content: center;
+        "
+      >
+        <app-friends-card
+          class="g-col-6"
+          *ngFor="let friendCard of friendCards"
+          [friendCard]="friendCard"
+        ></app-friends-card>
+      </ul>
+    </section>
+  </ng-container>
 </section>
-</ng-container>

@@ -1,7 +1,29 @@
-<div class="container-fluid justify-content">
-  <app-film-card
-    class="card m-1"
-    *ngFor="let filmCard of filmCards"
-    [filmCard]="filmCard"
-  ></app-film-card>
-</div>
+<section class="container-fluid d-flex justify-content-center">
+  <section>
+    <h2 style="text-align: center; margin-top: 2rem;">This is what we found!</h2>
+
+    <ul
+      class="grid gap-5 p-0"
+      style="
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+        margin-top: 2rem;
+        justify-content: center;
+      "
+    >
+      <app-film-card
+        style="
+          width: 20rem;
+          padding-bottom: 1rem;
+          border: none;
+          box-shadow: 2px 5px 5px 1px green;
+          margin-bottom: 2rem;
+        "
+        class="card m-1"
+        *ngFor="let filmCard of filmCards"
+        [filmCard]="filmCard"
+      ></app-film-card>
+    </ul>
+  </section>
+</section>

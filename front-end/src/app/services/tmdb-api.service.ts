@@ -24,4 +24,12 @@ export class TmdbApiService {
   getFilmById(id: number) {
     return this.api.get(`https://be-filmz-app.onrender.com/tmdb/films/${id}`);
   }
+
+  getFilmRatingById(id: number) {
+    return this.api.get(`https://be-filmz-app.onrender.com/films/${id}`);
+  }
+
+  getAllFilmsRatings() {
+    return this.api.get(`https://be-filmz-app.onrender.com/films`);
+  }
 }
