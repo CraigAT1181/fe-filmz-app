@@ -5,7 +5,6 @@ import { Location } from '@angular/common';
 import { TmdbApiService } from 'src/app/services/tmdb-api.service';
 import { SynopsisCardable } from 'src/app/interfaces/synopsis-card';
 
-
 @Component({
   selector: 'app-film-page',
   templateUrl: './film-page.component.html',
@@ -31,9 +30,11 @@ export class FilmPageComponent {
     return filmGenres;
   }
 
+  getAverageRating(id: number) {}
+
   getDirector(crew: []): string[] {
     const director = crew.filter(({ job }) => job === 'Director');
-    
+
     if (director.length === 0) {
       return ['Not applicable'];
     }
@@ -47,7 +48,7 @@ export class FilmPageComponent {
       .then(({ data }) => {
         const nullImage = 'assets/image-not-found.png';
         let imageSource;
-        
+
         if (data.poster_path === null) {
           imageSource = 'assets/image-not-found.png';
         } else {
