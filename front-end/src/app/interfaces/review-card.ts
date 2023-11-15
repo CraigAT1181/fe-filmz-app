@@ -4,7 +4,6 @@ export interface ReviewCardable{
     body: string,
     username: string,
     createdAt: string,
-    votes: number,
     title: string
 }
 
