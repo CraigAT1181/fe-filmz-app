@@ -48,11 +48,12 @@ export class FilmPageComponent {
     try {
       const id = Number(this.route.snapshot.paramMap.get('id'));
       const { data } = await this.tmdbApiService.getFilmById(id);
-      let rating: any = 3;
+      let rating: any = 3.00;
       try {
-        const rating = await this.tmdbApiService.getFilmRatingById(id);
+        const fetchedRating = await this.tmdbApiService.getFilmRatingById(id);
+        rating = await Number(fetchedRating.data.average_rating)
       } catch {
-        rating = 3;
+        rating = 3.00;
       }
       const nullImage = 'assets/image-not-found.png';
       let imageSource;
@@ -62,15 +63,13 @@ export class FilmPageComponent {
         imageSource = `https://image.tmdb.org/t/p/w500${data.poster_path}`;
       }
 
-      rating.toFixed(2);
-
       this.synopsisCard = {
         title: data.title,
         image: imageSource,
         year: data.release_date.slice(0, 4),
         overview: data.overview,
         language: data.original_language,
-        avgRating: rating,
+        avgRating: rating.toFixed(2),
         runtime: data.runtime,
         genre: this.getGenres(data.genres).join(', '),
         director: this.getDirector(data.credits.crew),
@@ -103,8 +102,6 @@ export class FilmPageComponent {
         
         this.reviewCards.push(reviewCard)
       });
-      console.log(this.reviewCards);
-      
     }
     catch{}
   }
