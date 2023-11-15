@@ -10,6 +10,7 @@ export class AuthenticationService {
   private isLoggedIn = false;
   private username: string | null = null;
   private avatar: string | null = null;
+  private userId: number | null = null;
 
   constructor() {}
 
@@ -18,15 +19,18 @@ export class AuthenticationService {
 
     return new Observable<boolean>((observer) => {
       axios
-        .post<{ loggedIn: boolean; username?: string; avatar?: string }>(
-          `${this.apiUrl}/authenticate`,
-          authenticationData
-        )
+        .post<{
+          loggedIn: boolean;
+          username?: string;
+          avatar?: string;
+          userId?: number;
+        }>(`${this.apiUrl}/authenticate`, authenticationData)
         .then((response) => {
           this.isLoggedIn = response.data.loggedIn;
           if (this.isLoggedIn) {
             this.username = response.data.username ?? null;
             this.avatar = response.data.avatar ?? null;
+            this.userId = response.data.userId ?? null;
           }
           observer.next(this.isLoggedIn);
           observer.complete();
@@ -48,6 +52,10 @@ export class AuthenticationService {
 
   getAvatar() {
     return this.avatar;
+  }
+
+  getUserId() {
+    return this.userId;
   }
 
   logout() {
