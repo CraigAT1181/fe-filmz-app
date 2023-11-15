@@ -20,4 +20,14 @@ export class FilmCardComponent {
       return 'red';
     }
   }
+
+  toggleWatched(): void {
+    this.watched = !this.watched;
+  }
+
+  toggleWatchlist(): void {
+    this.watchlisted = !this.watchlisted;
+  }
+
+  writeReview(): void {}
 }
