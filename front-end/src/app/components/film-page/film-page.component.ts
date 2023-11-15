@@ -15,6 +15,7 @@ export class FilmPageComponent {
   synopsisCard!: SynopsisCardable;
   isLoaded!: boolean;
   reviewCards: ReviewCardable[] = [];
+  currentFilmTitle!: string
 
   constructor(
     private route: ActivatedRoute,
@@ -63,6 +64,7 @@ export class FilmPageComponent {
       }
 
       let baseUrl = `https://image.tmdb.org/t/p/w500`;
+      this.currentFilmTitle = data.title
 
       this.synopsisCard = {
         title: data.title,

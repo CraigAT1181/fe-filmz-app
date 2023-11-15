@@ -1,0 +1,11 @@
+<form [formGroup]="myForm" (ngSubmit) = "onSubmit()">
+    <label for="body">
+        body: 
+    </label>
+    <input type="text" id="body" formControlName = "body"/>
+    <input type="number" id="rating" formControlName ="rating"/>
+
+    <button type="submit" [disabled]="myForm.invalid">
+        Submit
+    </button>
+</form>
