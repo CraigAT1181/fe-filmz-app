@@ -7,6 +7,7 @@ import { SynopsisCardable } from 'src/app/interfaces/synopsis-card';
   styleUrls: ['./film-synopsis-card.component.css'],
 })
 export class FilmSynopsisCardComponent {
+  isButtonClicked: boolean = false;
   @Input() synopsisCard!: SynopsisCardable;
 
   getRatingColor(rating: number): string {
@@ -17,5 +18,9 @@ export class FilmSynopsisCardComponent {
     } else {
       return 'red';
     }
+  }
+
+  toggleButtonClick() {
+    this.isButtonClicked = !this.isButtonClicked;
   }
 }
