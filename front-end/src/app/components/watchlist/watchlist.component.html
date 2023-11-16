@@ -1,4 +1,6 @@
-<h2 style="margin-bottom: 2rem; margin-top: 6rem;" class="d-flex justify-content-center">Your Film Journal</h2>
+<h2 style="margin-bottom: 2rem" class="d-flex justify-content-center">
+  Your Film Journal
+</h2>
 
 <div
   class="btn-group, d-flex justify-content-center"
@@ -24,10 +26,27 @@
   <label class="btn btn-outline-success" for="btncheck3">All</label>
 </div>
 
-<div class="grid gap-3 d-flex justify-content-center">
-  <ul *ngIf="watchStatus || !watchedUnchecked || allChecked">
-    <app-film-card 
-      class="p-2 g-col-6"
+<div>
+  <ul
+    class="grid gap-5 p-0"
+    style="
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      margin-top: 2rem;
+      justify-content: center;
+    "
+    *ngIf="watchStatus || !watchedUnchecked || allChecked"
+  >
+    <app-film-card
+      style="
+        width: 20rem;
+        padding-bottom: 1rem;
+        border: none;
+        box-shadow: 2px 5px 5px 1px green;
+        margin-bottom: 2rem;
+      "
+      class="card m-1"
       *ngFor="let filmCard of filmCards"
       [filmCard]="filmCard"
     ></app-film-card>

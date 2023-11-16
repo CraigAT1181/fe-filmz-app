@@ -1,13 +1,18 @@
 .max-img-height {
+  width: auto;
   height: 300px;
-}
-
-.row-title {
-  height: 40px;
-  align-items: center;
 }
 
 .image-hover-effect:hover {
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.7);
-  transition: box-shadow 0.3s ease, border 0.3s ease; /* Smooth transition effect for both box-shadow and border */
+  transition: box-shadow 0.3s ease, border 0.3s ease;
+}
+
+.film-card-title {
+  height: 40px;
+  align-items: center;
+}
+
+.progress-bar-height {
+  height: 20px;
 }

@@ -1,7 +1,7 @@
 <div class="container-fluid justify-content-center">
-  <div class="row m-2">
+  <div class="row mb-2 mt-2">
     <div class="col">
-      <div class="progress">
+      <div class="progress progress-bar-height border border-dark">
         <div
           class="progress-bar"
           role="progressbar"
@@ -16,7 +16,7 @@
     </div>
   </div>
 
-  <div class="row row-title">
+  <div class="row film-card-title">
     <div class="col text-center">
       <a
         routerLink="/film/{{ filmCard.id }}"
@@ -31,7 +31,6 @@
     <div class="col text-center">
       <a routerLink="/film/{{ filmCard.id }}">
         <img
-          style="max-width: 80%"
           src="{{ filmCard.img }}"
           class="img-fluid max-img-height image-hover-effect"
           alt="Picture of {{ filmCard.title }}"
