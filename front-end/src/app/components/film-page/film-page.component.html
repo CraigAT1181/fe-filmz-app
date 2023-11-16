@@ -7,6 +7,14 @@
   </app-film-synopsis-card>
 </ng-container>
 
+<app-new-review [filmTitle]="currentFilmTitle" [userid]="currentUserId">
+  
+</app-new-review>
+
+<div>
+  <app-friends-reviews></app-friends-reviews>
+</div>
+
 <section class="review-section">
   <ng-container *ngFor="let card of reviewCards">
     <app-reviews-card [reviewCard]="card"> </app-reviews-card>

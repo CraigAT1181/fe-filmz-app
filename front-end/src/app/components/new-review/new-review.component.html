@@ -1,0 +1,36 @@
+
+
+<div class="row d-flex justify-content-center">
+    <div class="col-md-8 col-lg-6">
+      <div class="card shadow-0 border" style="background-color: #f0f2f5">
+        <div class="card-body p-4">
+          <div class="card mb-4">
+            <div class="card-body">
+              <div class="d-flex flex-row align-items-center">
+                <p class="small text-muted mb-0">{{ this.filmTitle }}</p>
+              </div>
+  
+              <form [formGroup]="myForm" (ngSubmit) = "onSubmit()">
+                <label for="body">
+                    
+                </label>
+                <p>Your rating</p>
+                <input type="number" id="rating" formControlName ="rating" min="1" max="5" /> <br/>
+                <input type="text" id="body" formControlName = "body" placeholder="type your comment here"/> <br/>
+                
+            
+                <button class="btn btn-primary" type="submit" [disabled]="myForm.invalid">
+                    Submit
+                </button>
+            </form>
+  
+              <div class="d-flex justify-content-between">
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </div>
+  

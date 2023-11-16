@@ -17,4 +17,11 @@ export class ReviewsService {
   getReviewsByFilmId(filmid: number){
     return this.api.get(`https://be-filmz-app.onrender.com/films/${filmid}/reviews`)
   }
+
+  postReviewsByFilmId(filmid: number, requestOptions: any){
+    return axios.post(`https://be-filmz-app.onrender.com/films/${filmid}/reviews`, requestOptions).then((response)=>  {
+    console.log(response)  
+    response.data
+    })
+  }
 }
