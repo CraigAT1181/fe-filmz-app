@@ -5,6 +5,7 @@ import { TmdbApiService } from 'src/app/services/tmdb-api.service';
 import { SynopsisCardable } from 'src/app/interfaces/synopsis-card';
 import { ReviewsService } from 'src/app/services/reviews.service';
 import { ReviewCardable } from 'src/app/interfaces/review-card';
+import { AuthenticationService } from 'src/app/services/authentication.service';
 
 @Component({
   selector: 'app-film-page',
@@ -16,18 +17,31 @@ export class FilmPageComponent {
   isLoaded!: boolean;
   reviewCards: ReviewCardable[] = [];
   currentFilmTitle!: string
+  currentUserId!: any
 
   constructor(
     private route: ActivatedRoute,
     private location: Location,
     private tmdbApiService: TmdbApiService,
-    private reviewsService: ReviewsService
+    private reviewsService: ReviewsService,
+    private authenticationService: AuthenticationService
   ) {}
 
   ngOnInit(): void {
     this.getFilmDetails();
     this.getFilmReviews();
+    this.getCurrentUserId();
   }
+
+  async getCurrentUserId(): Promise<any> {
+    try {
+    const data = await this.authenticationService.getUserId()
+    this.currentUserId = data
+    }
+    catch {}
+  }
+
+
   getGenres(genres: []): string[] {
     const filmGenres = genres.map((genre: any) => {
       return genre.name;
@@ -128,4 +142,6 @@ export class FilmPageComponent {
       });
     } catch {}
   }
+
+
 }

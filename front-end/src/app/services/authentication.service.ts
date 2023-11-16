@@ -52,9 +52,6 @@ export class AuthenticationService {
     return this.username;
   }
 
-  // getUserId(){
-  //   return this.userid;
-  // }
 
   getAvatar() {
     return this.avatar;
