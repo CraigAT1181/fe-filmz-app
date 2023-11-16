@@ -1,7 +1,9 @@
 <div class="container-fluid">
   <div class="mb-3 film-background">
     <div class="row">
-      <div class="col-4 d-flex justify-content-end align-items-center">
+      <div
+        class="col-12 col-md-4 d-flex justify-content-end align-items-center"
+      >
         <img
           [src]="synopsisCard.image"
           s
@@ -9,7 +11,7 @@
           alt="Poster of {{ synopsisCard.title }}"
         />
       </div>
-      <div class="col-8 d-flex flex-column justify-content-center">
+      <div class="col-12 col-md-8 d-flex flex-column justify-content-center">
         <h2 class="display-6">
           {{ synopsisCard.title }} ({{ synopsisCard.year }})
         </h2>
@@ -29,7 +31,7 @@
         </div>
 
         <div class="row mt-1 mb-3">
-          <div class="col-4 mt-1">
+          <div class="col-12 col-md-4 mt-1">
             <div class="progress border border-dark" style="height: 30px">
               <div
                 class="progress-bar"
@@ -46,7 +48,9 @@
             </div>
           </div>
 
-          <div class="col-1 d-flex align-items-center">
+          <div
+            class="col-4 col-md-1 d-flex mt-2 mb-2 align-items-center justify-content-center"
+          >
             <button
               class="btn icon-buttons"
               data-toggle="tooltip"
@@ -56,7 +60,9 @@
               <i class="bi bi-eye-fill icon-size"></i>
             </button>
           </div>
-          <div class="col-1 d-flex align-items-centser">
+          <div
+            class="col-4 col-md-1 d-flex align-items-center justify-content-center"
+          >
             <button
               class="btn icon-buttons"
               data-toggle="tooltip"
@@ -66,7 +72,9 @@
               <i class="bi bi-plus-lg icon-size"></i>
             </button>
           </div>
-          <div class="col-1 d-flex align-items-center">
+          <div
+            class="col-4 col-md-1 d-flex align-items-center justify-content-center"
+          >
             <button
               class="btn icon-buttons"
               data-toggle="tooltip"
@@ -85,23 +93,25 @@
 
         <div class="mt-1">
           <h6>Cast</h6>
-          <div class="d-flex">
+          <div class="row">
             <ng-container
               *ngFor="let actor of synopsisCard.actors_name; let i = index"
             >
-              <div class="card actor-card">
-                <img
-                  src="{{ synopsisCard.actors_pic[i] }}"
-                  alt="{{ actor }}"
-                  class="card-img-top actor-image"
-                />
-                <div class="card-body p-1">
-                  <p class="card-text custom-text-actor mb-1 mt-1 ml-0 mr-0">
-                    {{ actor }}
-                  </p>
-                  <p class="card-text custom-text-character">
-                    {{ synopsisCard.actors_character[i] }}
-                  </p>
+              <div class="col-4 col-md-2 mb-3">
+                <div class="card actor-card">
+                  <img
+                    src="{{ synopsisCard.actors_pic[i] }}"
+                    alt="{{ actor }}"
+                    class="card-img-top actor-image"
+                  />
+                  <div class="card-body p-1">
+                    <p class="card-text custom-text-actor mb-1 mt-1 ml-0 mr-0">
+                      {{ actor }}
+                    </p>
+                    <p class="card-text custom-text-character">
+                      {{ synopsisCard.actors_character[i] }}
+                    </p>
+                  </div>
                 </div>
               </div>
             </ng-container>
