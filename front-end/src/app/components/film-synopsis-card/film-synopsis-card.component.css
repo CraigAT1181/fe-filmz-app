@@ -53,3 +53,7 @@
 .icon-buttons:hover {
   box-shadow: 0 0 10px rgba(0, 100, 0, 0.5);
 }
+
+.custom-text {
+  color: black;
+}
