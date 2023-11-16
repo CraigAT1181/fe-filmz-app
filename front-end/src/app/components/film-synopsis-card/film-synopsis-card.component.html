@@ -28,20 +28,53 @@
           <strong>{{ synopsisCard.director }}</strong>
         </div>
 
-        <div class="progress-max-width mt-1 mb-3">
-          <div class="progress border border-dark" style="height: 30px">
-            <div
-              class="progress-bar"
-              role="progressbar"
-              [style.width.%]="synopsisCard.avgRating * 20"
-              [style.backgroundColor]="
-                getRatingColor(synopsisCard.avgRating * 20)
-              "
-              aria-valuemin="0"
-              aria-valuemax="100"
-            >
-              {{ synopsisCard.avgRating * 20 }}%
+        <div class="row mt-1 mb-3">
+          <div class="col-4 mt-1">
+            <div class="progress border border-dark" style="height: 30px">
+              <div
+                class="progress-bar"
+                role="progressbar"
+                [style.width.%]="synopsisCard.avgRating * 20"
+                [style.backgroundColor]="
+                  getRatingColor(synopsisCard.avgRating * 20)
+                "
+                aria-valuemin="0"
+                aria-valuemax="100"
+              >
+                {{ synopsisCard.avgRating * 20 }}%
+              </div>
             </div>
+          </div>
+
+          <div class="col-1 d-flex align-items-center">
+            <button
+              class="btn icon-buttons"
+              data-toggle="tooltip"
+              data-placement="bottom"
+              title="Watched"
+            >
+              <i class="bi bi-eye-fill icon-size"></i>
+            </button>
+          </div>
+          <div class="col-1 d-flex align-items-centser">
+            <button
+              class="btn icon-buttons"
+              data-toggle="tooltip"
+              data-placement="bottom"
+              title="Add to watchlist"
+            >
+              <i class="bi bi-plus-lg icon-size"></i>
+            </button>
+          </div>
+          <div class="col-1 d-flex align-items-center">
+            <button
+              class="btn icon-buttons"
+              data-toggle="tooltip"
+              data-placement="bottom"
+              title="Write a Review"
+            >
+              <i class="bi bi-pencil-fill icon-size"></i>
+            </button>
           </div>
         </div>
 
