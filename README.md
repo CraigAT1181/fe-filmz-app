@@ -26,7 +26,7 @@ Hosted Version coming soon!
 
 ## Instructions for running locally
 
-1. Clone the repository by running the following command in your terminal wherever you wish to clone it:
+1. Fork and then clone the repository by running the following command in your terminal wherever you wish to clone it:
 
 ```
 git clone https://github.com/CraigAT1181/fe-filmz-app.git
