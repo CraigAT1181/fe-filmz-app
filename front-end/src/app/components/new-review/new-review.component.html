@@ -28,6 +28,7 @@
               <br />
 
               <button
+                [class.disabled]="!isLoggedIn()"
                 class="btn btn-primary"
                 type="submit"
                 [disabled]="myForm.invalid"

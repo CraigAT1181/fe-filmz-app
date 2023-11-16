@@ -56,6 +56,8 @@
               data-toggle="tooltip"
               data-placement="bottom"
               title="Watched"
+              [class.clicked]="isButtonClicked"
+              (click)="toggleButtonClick()"
             >
               <i class="bi bi-eye-fill icon-size"></i>
             </button>
