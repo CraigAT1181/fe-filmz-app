@@ -23,6 +23,8 @@ export class AuthenticationService {
           authenticationData
         )
         .then((response) => {
+          console.log(response);
+          
           this.isLoggedIn = response.data.loggedIn;
           if (this.isLoggedIn) {
             this.username = response.data.username ?? null;
@@ -45,6 +47,10 @@ export class AuthenticationService {
   getUsername() {
     return this.username;
   }
+
+  // getUserId(){
+  //   return this.userid;
+  // }
 
   getAvatar() {
     return this.avatar;

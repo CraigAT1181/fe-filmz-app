@@ -2,6 +2,7 @@ import { Component, OnInit, Input } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms'; 
 import { ReviewsService } from 'src/app/services/reviews.service';
 import { ParamMap, ActivatedRoute } from '@angular/router';
+import { AuthenticationService } from 'src/app/services/authentication.service';
 
 @Component({
   selector: 'app-new-review',
@@ -14,7 +15,8 @@ export class NewReviewComponent implements OnInit {
   myForm!: FormGroup;
   constructor(
     private reviewsService: ReviewsService,
-    private route: ActivatedRoute
+    private route: ActivatedRoute,
+    private authenticationService: AuthenticationService
   ){}
   ngOnInit(){
     this.myForm = new FormGroup({
@@ -24,6 +26,7 @@ export class NewReviewComponent implements OnInit {
   }
 onSubmit = () => {
   const filmid = Number(this.route.snapshot.paramMap.get("id"))
+  // this.authenticationService()
   const requestOptions = {body: this.myForm.value.body, user_id: 2, votes: 0, rating: this.myForm.value.rating, original_title: this.filmTitle}
   console.log(JSON.stringify(requestOptions), "request options");
   
